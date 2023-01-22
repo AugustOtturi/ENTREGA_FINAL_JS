@@ -1,97 +1,50 @@
-//TODO Hago entrega del simulador creado para gestionar y organizar pequeños comercios.
-//TODO El principal objetivo, en esta entrega y al finalizar el simulador, es poder facilitar la administracion y organizacion mediante programaciones utiles para el día a día
-//TODO El nuevo modulo de Provedores permite crear una AGENDA con los datos que le demos. Luego, con sus diferentes funciones, permite manipularla de distintas formas.
-//TODO Por el momento posee un diseño basico para la implementacion de las nuevas programaciones y funciones. La idea es crear un entorno de "ADMINISTRADOR" simple.
-//TODO La idea es no marear a quien este trabajando con la pagina, sino que se puede simplificar y agilazar la administracion.
 
-/* !USUARIO Y CONTRASEÑA */
-const USUARIO = "admin";
-const PASSWORD = 1234;
-/* 
-loginUser();
-*/
-//? UTILIDADES
 
-/* !INGRESO DE USUARIO*/
-/* !En este unico caso utilizo un 'VAR' ya que con LET no vuelve a solicitar el usuario ni la contraseña.
-    No se si es que algo estoy aplicando mal pero con VAR funciona bien */
-function loginUser() {
-
-    do {
-        var user = prompt("Ingresar USUARIO");
-
-        if (user !== USUARIO) {
-            alert("Error, usuario INCORRECTO");
-        }
-    } while (user !== USUARIO);
-    alert("Usuario CORRECTO");
-
-    do {
-        var pass = parseInt(prompt("Ingresar CONTRASEÑA"));
-
-        if (pass !== PASSWORD) {
-            alert("Error, contraseña INCORRECTA");
-        }
-    } while (pass !== PASSWORD);
-    alert("Bienvenido " + USUARIO + ", ¡Estamos listos para trabajar!");
-}
 
 
 
 /* !CALCULAR PRECIO DE VENTA DE UN PRODUCTO */
 function valorVenta() {
     const VALOR_AGREGADO = 1.90;
-    let num = parseInt(prompt("Ingresa el valor del producto"));
+    let num = parseInt(prompt(`Ingresa el valor del producto`));
     let resultado = num * VALOR_AGREGADO;
-    alert("El valor de venta es: " + resultado.toFixed(2));
+    alert(`El valor de venta es: ` + resultado.toFixed(2));
 }
 
 
 /* !CALCULAR IVA DE UN PRODUCTO */
 function valorIva() {
     const IVA_ARGENTINA = 0.21;
-    let valorProducto = prompt("Ingresa el valor del producto");
+    let valorProducto = parseInt(prompt(`Ingresa el valor del producto`));
     let resultado = valorProducto * IVA_ARGENTINA;
-    alert("El IVA que abonaste por el producto es: " + resultado.toFixed(2));
+    alert(`El IVA que abonaste por el producto es: ${resultado.toFixed(2)}`);
 }
 
 /* !CALCULADORA DE COSTO OPERATIVO */
-/* !INCIO LOS FOR CON 1 ASÍ PUEDO UTILIZARLOS PARA NOMBRAR NRO DEL SERVICIO Y QUE NO CUENTE DESDE 0.
-    Es la forma que encontré para hacerlo. (Siendo consciente de que la primera posicion del array esta vacia)*/
 function costoOperativo() {
-    let valores = [];
-    let sum = 0;
-    let veces = parseInt(prompt("Cuantos servicios vas a sumar?"));
-
-    for (i = 1; i <= veces; i++) {
-        valores[i] = parseInt(prompt("Ingresá el valor del servicio nro " + i));
+    let veces = parseInt(prompt(`Cuantos servicios vas a sumar?`));
+    let suma = 0;
+    for (i = 0; i < veces; i++) {
+        suma += parseInt(prompt(`Ingrese el servicio nro ${i + 1}`));
     }
 
-    for (let i = 1; i < valores.length; i++) {
-        sum += valores[i];
-    }
-
-    let seleccion = parseInt(
-        prompt(
-            "1) Costo operativo mensual, 2) Costo operativo diario, 3) Volver a comenzar"
-        )
-    );
-
+    let seleccion = parseInt(prompt(`
+    1 - Costo operativo mensual
+    2 - Costo operativo diario
+    3 - Volver a cargar los valores`))
     switch (seleccion) {
         case 1:
-            alert("El costo operativo mensual de tu comercio es de: " + sum);
+            alert(`El costo operativo mensual de tu comercio es de: ` + suma);
             break;
         case 2:
-            let dias = parseInt(
-                prompt("¿Cuantos dias al mes mantenes comercio abierto?")
-            );
-            let resultado = sum / dias;
-            alert("El costo operativo diario es de: " + resultado.toFixed(2));
+            let dias = parseInt(prompt(`¿Cuantos dias al mes mantenes comercio abierto?`));
+            let resultado = suma / dias;
+            alert(`El costo operativo diario es de: ${resultado.toFixed()} estando ${dias} dias abierto.`);
             break;
         case 3:
             costoOperativo();
         default:
-            alert("Igresaste una opcion invalida, volvé a intentarlo");
+            alert(`Igresaste una opcion invalida, volvé a intentarlo`);
     }
 }
 
@@ -100,12 +53,12 @@ function costoOperativo() {
 
 
 
-//? INVENTARIO
+// INVENTARIO
 
-//CONSTRUCTOR
+//Constructor
 class NuevoProvedor {
     constructor(empresa, persona, contacto, rubro, id) {
-        this.empresa = empresa,
+            this.empresa = empresa,
             this.persona = persona,
             this.contacto = contacto,
             this.rubro = rubro,
@@ -113,12 +66,22 @@ class NuevoProvedor {
     }
     /* Metodo para imprimir toda la informacion */
     mostrarinfo() {
-        return ` Id: ${this.id} \n Empresa: ${this.empresa} \n Persona: ${this.persona} \n Contacto: ${this.contacto} \n Rubro: ${this.rubro};`
+        return `
+         Id: ${this.id}
+         Empresa: ${this.empresa} 
+         Persona: ${this.persona} 
+         Contacto: ${this.contacto}
+         Rubro: ${this.rubro};`
     }
+    /* Metodo para imprimir corta informacion */
     mostrarInfoCorta() {
-        return ` Id: ${this.id} \n Empresa: ${this.empresa} `
+        return `
+         Id: ${this.id}
+         Empresa: ${this.empresa} `
     }
 }
+
+
 /* PRODCUTOS PRE-CARGADOS */
 
 const provedor1 = new NuevoProvedor("ARCOR", "Juan Pablo", 1599999999, "Golosinas", 1);
@@ -132,10 +95,10 @@ const provedor8 = new NuevoProvedor("Cervezas", "Viviana", 1599999999, "Alcohol"
 const provedor9 = new NuevoProvedor("Limpiando", "Pedro", 1599999999, "Limpieza", 9);
 const provedor10 = new NuevoProvedor("Celulares CABA", "Facundo", 1599999999, "Electronica", 10);
 
-/* Creo ARRAY donde se van a cargar los productos */
+/* ARRAY MASTER */
 const LISTA = [provedor1, provedor2, provedor3, provedor4, provedor5, provedor6, provedor7, provedor8, provedor9, provedor10];
 
-// Funcion para ver la lista
+// Funcion para mostrar lista de provedores
 function verProvedores(array) {
     console.log("LISTA DE PROVEDORES:");
     array.forEach((provedor) => {
@@ -217,18 +180,3 @@ function ordenarAlfaEmpresa(array) {
     verProvedores(arrayOrdenado)
 }
 
-
-
-
-function eliminarElementoSeleccionado(array) {
-    for (let elementos of array) {
-        console.log(`
-        ID: ${elementos.id}
-        EMPRESA: ${elementos.empresa}`)
-    };
-    let empresaAEliminar = parseInt(prompt("Ingresá el ID de la empresa a eliminar"));
-    let arrayIds = array.map(elemento => elemento.id)
-    let indice = arrayIds.indexOf(empresaAEliminar)
-    array.splice(indice, 1)
-    console.log("El elemento fue eliminado satisfactoriamente")
-}

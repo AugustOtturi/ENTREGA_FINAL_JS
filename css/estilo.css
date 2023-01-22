@@ -31,6 +31,9 @@ header .navbar {
       color: gray; }
 
 /* !PROVEDORES  */
+body {
+  background-color: #f7f7ff; }
+
 .inventario .container-fluid {
   height: 100%;
   width: 100%; }
