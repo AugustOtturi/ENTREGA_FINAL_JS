@@ -128,3 +128,7 @@ let botonCostoVerResultado = document.getElementById("botonCostoVerResultado")
 botonCostoVerResultado.addEventListener("click", () => { verCostoResultados() })
 
 
+//? Boton refrescar pagina
+
+let botonRefrescarCosto = document.getElementById("botonRefrescar")
+botonRefrescarCosto.addEventListener("click", () => {location.reload()})
