@@ -1,34 +1,50 @@
 header {
     .navbar {
-        background-color: $color1;
-        height: 10%;
-        .container-fluid{
-            .navbar-brand{
-                font-size: 3rem;
-                font-family: $font-family1;
+        .container-fluid {
+            height: 7rem;
+            .navbar-brand {
+                
+                img {
+                    height: 8rem;
+                    width: 8rem;
+                    margin-top: 2rem;
+                    z-index: -2;
+                }
             }
-            .navbar-collapse{
-                ul{
-                    li{
-
-                        a{
-                            font-size: 1.5rem;
-                            font-weight: bold;
-                            color: black;
-                            i{
-                                vertical-align:auto;
-                                color: black;
-                                font-size: 1.7rem;
-                                padding: 0 0.5rem;
-                            }
-                            &:hover{
-                                color: gray;
-                            }
-                        }
+        }
+        .collapse {
+            .navbar-nav {
+                a {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: black;
+                    font-family: $font-family2;
+                    transition: all ease 0.2s;
+                    margin: 0 0.2rem;
+                    position: relative;
+                    text-align: center;
+                    i {
+                        font-size: 2rem;
+                        margin-right: 0.5rem;
+                        vertical-align:text-bottom;
+                    }
+                    &::before {
+                        content: "";
+                        height: 5%;
+                        width: 100%;
+                        background-color: black;
+                        display: flex;
+                        position: absolute;
+                        top: 100%;
+                        left: 2%;
+                        transform: scaleX(0);
+                        transition: all ease 0.2s;
+                    }
+                    &:hover::before {
+                        transform: scaleX(1);
                     }
                 }
             }
-
         }
     }
 }

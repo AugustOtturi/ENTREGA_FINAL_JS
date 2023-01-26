@@ -5,62 +5,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INVENTARIO</title>
+    <title>PROVEDORES - Agenda rapida y facil de utilizar</title>
     <script src="https://kit.fontawesome.com/6da7673045.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&family=Roboto:ital,wght@1,300&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400&family=Titan+One&display=swap"
         rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg bg-warning">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html">ADM</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
-                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand " href="../index.html"><img src="../assets/logo.png" alt="LOGO"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html"><i class="fa-solid fa-house"></i>Index</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./utilidades.html"><i
-                                    class="fa-solid fa-calculator"></i>Utilidades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./proovedores.html"><i
-                                    class="fa-solid fa-address-book"></i>Inventario</a>
-                        </li>
-
-                    </ul>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="../index.html">INICIO</a>
+                        <a class="nav-link" href="./utilidades.html">
+                            UTILIDADES</a>
+                        <a class="nav-link" href="./proovedores.html">PROVEDORES</a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
-<!-- MAIN -->
-    <main class="inventario">
-        <div class="container-fluid">
-            <h1>PROOVEDORES</h1>
-            <div class="botones">
-                <button class="btn btn-dark" onclick="verProvedores(LISTA)">VER PROVEDORES</button>
-                <button class="btn btn-dark" onclick="cargarProvedor(LISTA)">CARGAR PROVEDOR NUEVO</button>
-                <button class="btn btn-dark" onclick="eliminarProvedor(LISTA)">ELIMINAR PROVEDOR</button>
-                <button class="btn btn-dark" onclick="filtrarPorRubro(LISTA)">FILTRAR POR RUBRO</button>
-                <button class="btn btn-dark" onclick="buscarEmpresa(LISTA)">BUSCAR POR EMPRESA</button>
-                <button class="btn btn-dark" onclick="ordenarAlfaEmpresa(LISTA)">ORDENAR ALFABETICAMENTE</button>
+    <!-- MAIN -->
+
+    <main>
+        <h1 class="display-3 fw-bold lh-5">Agenda</h1>
+        <div class="plantilla">
+            <div class="btn-group btn-group-primary ms-1" role="group">
+                <button class="btn btn-dark ms-1" id="verLista">VER LISTA</button>
+                <!-- !OFFCANVAS -->
+                <button class="btn btn-dark ms-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight">CARGAR PROOVEDOR</button>
+                <!-- !CUERPO OFFCANVAS
+                 -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasRightLabel">NUEVO PROVEDOR</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <form action="#" autocomplete="off">
+                            <div class="form-empresa formDiv">
+                                <label for="empresa" class="form-label">Empresa: </label>
+                                <input type="text" class="form-control" id="inputEmpresa" autocomplete="off">
+                            </div>
+                            <div class="form-contacto formDiv">
+                                <label for="Nombre" class="form-label">Representante: </label>
+                                <input type="text" class="form-control " id="inputNombre" autocomplete="off">
+                            </div>
+                            <div class="form-numero formDiv">
+                                <label for="contacto" class="form-label">Contacto: </label>
+                                <input type="text" class="form-control" id="inputContacto" autocomplete="off">
+                            </div>
+                            <div class="form-rubro formDiv">
+                                <label for="rubro" class="form-label">Rubro </label>
+                                <select class="form-select formDiv" aria-label="Rubro" id="inputRubro" autocomplete="off">
+                                    <option value= "Golosinas"selected>Golosinas</option>
+                                    <option value="Bebidas">Bebidas</option>
+                                    <option value="Alcohol">Alcohol</option>
+                                    <option value="Limpieza">Limpieza</option>
+                                    <option value="Electronica">Electronica</option>
+                                    <option value="Fumador">Fumador</option>
+                                </select>
+
+                            </div>
+                            <div class="form-submit formDiv">
+                                
+                            
+                                <input type="reset" value="Cargar" class="btn btn-dark ms-1 mt-4" onclick="cargarProvedor(LISTA)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                aria-controls="offcanvasRight">
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <button class="btn btn-dark ms-1" onclick="eliminarProvedor(LISTA)">ELIMINAR</button>
+                <button class="btn btn-dark ms-1" onclick="filtrarPorRubro(LISTA)">FILTRAR</button>
+                <input type="text" name="busquedaPorRubro" id="busquedaPorRubro">
+                <button class="btn btn-dark ms-1" onclick="buscarEmpresa(LISTA)">BUSCAR POR
+                    EMPRESA</button>
+                <button class="btn btn-dark ms-1" onclick="ordenarAlfaEmpresa(LISTA)">ORDENAR
+                    ALFABETICAMENTE
+                </button>
+                <button class="btn btn-dark ms-1 ms-1" onclick="ocultarLista()"><i class="fa-solid fa-xmark"></i></button>
                 
             </div>
+
+
+
+            <div class="cardsProvedores">
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-start" id="rowCards">
+                        
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
         </div>
     </main>
+    
 
 
 

@@ -5,95 +5,150 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTILIDADES</title>
+    <title>UTILIDADES - Calculadoras rapidas para tu gestion</title>
     <script src="https://kit.fontawesome.com/6da7673045.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&family=Roboto:ital,wght@1,300&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400&family=Titan+One&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg bg-warning">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html">ADM</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
-                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand " href="../index.html"><img src="../assets/logo.png" alt="LOGO"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html"><i class="fa-solid fa-house"></i>Index</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./utilidades.html"><i
-                                    class="fa-solid fa-calculator"></i>Utilidades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./proovedores.html"><i
-                                    class="fa-solid fa-address-book"></i>Proovedores</a>
-                        </li>
-
-                    </ul>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="../index.html">INICIO</a>
+                        <a class="nav-link" href="./utilidades.html">UTILIDADES</a>
+                        <a class="nav-link" href="./proovedores.html">PROVEDORES</a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
-    
 
-    <main class="utilidades">
-        <div class="container-fluid">
-            <h1>UTILIDADES</h1>
-            <div class="row">
-                <div class="col-10 col-lg-3 col-sm-6">
-                    <div class="card text-center">
-                        <div class="card-body justifiy-content-center d-flex flex-column">
-                            <h5 class="card-title text-center">Precio de venta</h5>
-                            <p class="card-text">Uno de los momentos más complejos para todo emprendimiento es aprender cómo calcular el precio de un producto y, luego, mantenerlo constantemente monitoreado. 
-                            </p>
-                            <a href="#" class="btn btn-success" onclick="valorVenta()">CALCULAR</a>
+    <main>
+        <section class="utilidades">
+            <!-- !HERO 1 -->
+            <div class="container my-5 " data-aos="fade-right">
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                        <h1 class="display-3 fw-bold lh-5">Precio de venta</h1>
+                        <p class="lead">Precio de venta es el precio final que paga el cliente por un producto o
+                            servicio. Se llaman Precios de Venta a los precios que manejan los representantes de ventas,
+                            tomando como base los precios de lista. </p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                            <input type="number" class="form-control w-25 p-3" placeholder="$" id="valorVentaInput">
+                            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+                                id="botonVenta">Calcular</button>
+                            <div class="resultadoVenta mt-3 ml-5" id="resultadoVenta">
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-10 col-lg-3 col-sm-6">
-                    <div class="card">
-                        <div class="card-body justifiy-content-center d-flex flex-column">
-                            <h5 class="card-title text-center">IVA de producto</h5>
-                            <p class="card-text">Todos y cada uno de nosotros tenemos que lidiar con el IVA en nuestra vida diaria. Ahora bien, ¿sabemos cómo calcularlo?
-                            </p>
-                            <a href="#" class="btn btn-success" onclick="valorIva()">CALCULAR</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-10 col-lg-3 col-sm-6">
-                    <div class="card">
-                        <div class="card-body justifiy-content-center d-flex flex-column">
-                            <h5 class="card-title text-center">Costo operativo</h5>
-                            <p class="card-text">El costo operativo de una empresa incluye todos los gastos relacionados con el funcionamiento de una organización, tales como materiales, salarios de los empleados, impuestos comerciales, logística, entre otras necesidades diversas.
-                            </p>
-                            <a href="#" class="btn btn-success" onclick="costoOperativo()">CALCULAR</a>
-                        </div>
+                    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
+                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_w31lekvd.json"
+                            background="transparent" speed="1" style="width: 450px; height: 450px;" loop
+                            autoplay></lottie-player>
+
                     </div>
                 </div>
             </div>
-        </div>
+            <!-- !HERO 2 -->
+            <div class="container my-5" data-aos="fade-left">
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 d-flex flex-row-reverse rounded-3 border shadow-lg">
+                    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                        <h1 class="display-3 fw-bold lh-5">Costo Operativo</h1>
+                        <p class="lead">El costo operativo de una empresa incluye todos los gastos relacionados con el
+                            funcionamiento de una organización, tales como materiales, salarios de los empleados, entre
+                            otras necesidades diversas.
+                            Tener el control total de todos estos costos es una de las mejores formas de tener un
+                            negocio aún más rentable.</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center my-5 mb-4 mb-lg-3">
+                            <button class="btn btn-primary btn btn-primary btn-lg px-4 me-md-2 fw-bold" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Comenzar</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
+                        <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_v47ikixh.json"
+                            background="transparent" speed="1" style="width: 350px; height: 350px;" loop
+                            autoplay></lottie-player>
 
+
+                    </div>
+                </div>
+            </div>
+            <!-- !HHERO 3 -->
+            <div class="container my-5" data-aos="fade-right">
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center  rounded-3 border shadow-lg">
+                    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                        <h1 class="display-3 fw-bold lh-5">Calcular I.V.A.</h1>
+                        <p class="lead">El Impuesto sobre el Valor Agregado (I.V.A.) es un impuesto indirecto que grava
+                            el consumo. Es un incremento de un porcentaje en el precio de cada artículo que compramos y
+                            de cada servicio que recibimos. En cada compra pagamos el precio del bien más el porcentaje
+                            de impuestos que se le aplica a su coste. </p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                            <input type="number" class="form-control w-25 p-3" placeholder="$" id="valorProductoInput">
+                            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+                                id="botonIva">Calcular</button>
+                            <div class="resultadoIve     mt-3 ml-5" id="resultadoIva">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
+
+                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_5jkww0t1.json"
+                            background="transparent" speed="1" style="width: 300px; height: 300px;" loop
+                            autoplay></lottie-player>
+
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+        
+        <!-- !OFF CANVAS -->
+        <!-- <div class="offcanvasplantillas">
+
+            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom"
+            aria-labelledby="offcanvasBottomLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Costo Operativo</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form action="#"></form>
+            </div>
+        </div>
+        </div> -->
     </main>
 
 
 
-
-
-    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    
+    <script>
+        AOS.init();
+    </script>
     <script src="../main.js"></script>
 </body>
 

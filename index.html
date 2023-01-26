@@ -5,50 +5,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDEX</title>
+    <title>INICIO - Comenzar</title>
     <script src="https://kit.fontawesome.com/6da7673045.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&family=Roboto:ital,wght@1,300&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400&family=Titan+One&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg bg-warning">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html">ADM</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
-                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand " href="./index.html"><img src="./assets/logo.png" alt="LOGO"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html"><i class="fa-solid fa-house"></i>Index</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./pages/utilidades.html"><i
-                                    class="fa-solid fa-calculator"></i>Utilidades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./pages/proovedores.html"><i
-                                    class="fa-solid fa-address-book"></i>Proovedores</a>
-                        </li>
-
-                    </ul>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="./index.html">INICIO</a>
+                        <a class="nav-link" href="./pages/utilidades.html">UTILIDADES</a>
+                        <a class="nav-link" href="./pages/proovedores.html">PROVEDORES</a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
+    <main>
+        <div class="hero">
+            <div class="b-example-divider divisor"></div>
+            <div class="container col-xxl-8 px-4 py-5">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                    <div class="col-10 col-sm-8 col-lg-6 columna">
+
+                        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_400xjh1o.json"
+                            background="transparent" speed="1" loop
+                            autoplay class="animacion"></lottie-player>
+                    </div>
+                    <div class="col-lg-6 columna-texto">
+                        <h1 class="heroTitulo">Bienvenida/o</h1>
+                        <p class="heroText">Estar al dia con tu comercio nunca fue tan facil.
+                            Podes consultar tus provedores, usar las calculadoras o agregarte notas.
+                            ¡Comenzá ya!
+                        </p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <a href="./pages/utilidades.html" class="btn btn-success btn-lg px-4 me-md-2">Comenzar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
 
 
 
-
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>

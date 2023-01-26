@@ -1,23 +1,30 @@
 
 
 
-
-
 /* !CALCULAR PRECIO DE VENTA DE UN PRODUCTO */
 function valorVenta() {
     const VALOR_AGREGADO = 1.90;
-    let num = parseInt(prompt(`Ingresa el valor del producto`));
-    let resultado = num * VALOR_AGREGADO;
-    alert(`El valor de venta es: ` + resultado.toFixed(2));
+    let num = document.getElementById("valorVentaInput")
+    let resultado = num.value * VALOR_AGREGADO;
+    let divPadre = document.getElementById("resultadoVenta");
+    divPadre.innerHTML = ``;
+    let construccion = document.createElement("div")
+    construccion.innerHTML = `Precio de venta ${resultado.toFixed(2)}$`
+    divPadre.append(construccion)
 }
 
 
-/* !CALCULAR IVA DE UN PRODUCTO */
+/* /* !CALCULAR IVA DE UN PRODUCTO */
 function valorIva() {
     const IVA_ARGENTINA = 0.21;
-    let valorProducto = parseInt(prompt(`Ingresa el valor del producto`));
-    let resultado = valorProducto * IVA_ARGENTINA;
-    alert(`El IVA que abonaste por el producto es: ${resultado.toFixed(2)}`);
+    let valorProducto = document.getElementById("valorProductoInput")
+    let resultado = valorProducto.value * IVA_ARGENTINA;
+    let divPadre = document.getElementById("resultadoIva")
+    divPadre.innerHTML = ``;
+    let construccion = document.createElement("div");
+    construccion.innerHTML = `<p>I.V.A. es de ${resultado.toFixed(2)}$</p>`
+    divPadre.appendChild(construccion)
+    
 }
 
 /* !CALCULADORA DE COSTO OPERATIVO */
@@ -58,7 +65,7 @@ function costoOperativo() {
 //Constructor
 class NuevoProvedor {
     constructor(empresa, persona, contacto, rubro, id) {
-            this.empresa = empresa,
+        this.empresa = empresa,
             this.persona = persona,
             this.contacto = contacto,
             this.rubro = rubro,
@@ -84,50 +91,100 @@ class NuevoProvedor {
 
 /* PRODCUTOS PRE-CARGADOS */
 
-const provedor1 = new NuevoProvedor("ARCOR", "Juan Pablo", 1599999999, "Golosinas", 1);
-const provedor2 = new NuevoProvedor("Danone", "Marina", 1599999999, "Lacteos", 2);
+const provedor1 = new NuevoProvedor("Arcor", "Juan Pablo", 1599999999, "Golosinas", 1);
+const provedor2 = new NuevoProvedor("Frigor", "Marina", 1599999999, "Helados", 2);
 const provedor3 = new NuevoProvedor("Quilmes", "Raul", 1599999999, "Alcohol", 3);
-const provedor4 = new NuevoProvedor("La Serenisima", "Marta", 1599999999, "Lacteos", 4);
-const provedor5 = new NuevoProvedor("Lays", "Juan Cruz", 1599999999, "Snacks", 5);
-const provedor6 = new NuevoProvedor("Alfajores", "María", 1599999999, "Golosinas", 6);
+const provedor4 = new NuevoProvedor("Aralex", "Marta", 1599999999, "Fumador", 4);
+const provedor5 = new NuevoProvedor("Fali", "Juan Cruz", 1599999999, "Fumador", 5);
+const provedor6 = new NuevoProvedor("La Dolce", "María", 1599999999, "Golosinas", 6);
 const provedor7 = new NuevoProvedor("Montevideana", "Diego", 1599999999, "Helados", 7);
-const provedor8 = new NuevoProvedor("Cervezas", "Viviana", 1599999999, "Alcohol", 8);
+const provedor8 = new NuevoProvedor("Cervezas Juan", "Viviana", 1599999999, "Alcohol", 8);
 const provedor9 = new NuevoProvedor("Limpiando", "Pedro", 1599999999, "Limpieza", 9);
 const provedor10 = new NuevoProvedor("Celulares CABA", "Facundo", 1599999999, "Electronica", 10);
+const provedor11 = new NuevoProvedor("Coca cola", "Seberina", 1599999999, "Bebidas", 11);
+const provedor12 = new NuevoProvedor("Villavicencio", "Nayeli", 1599999999, "Bebidas", 12);
 
 /* ARRAY MASTER */
-const LISTA = [provedor1, provedor2, provedor3, provedor4, provedor5, provedor6, provedor7, provedor8, provedor9, provedor10];
+const LISTA = [provedor1, provedor2, provedor3, provedor4, provedor5, provedor6, provedor7, provedor8, provedor9, provedor10, provedor11, provedor12];
+
+
+/* INICIO LISTA */
+/* verProvedores(LISTA)
+
+ */
+
+
 
 // Funcion para mostrar lista de provedores
 function verProvedores(array) {
-    console.log("LISTA DE PROVEDORES:");
-    array.forEach((provedor) => {
-        console.log(provedor.mostrarinfo());
-    });
+    let listaProvedores = document.getElementById("rowCards")
+    listaProvedores.innerHTML = ``;
+    for (let provedor of array) {
+        let nuevoProvedor = document.createElement("div")
+        nuevoProvedor.className = "card text-black mb-3 " + provedor.rubro
+        let icon;
+
+
+        if (provedor.rubro == "Bebidas") {
+            icon = `fa-solid fa-bottle-water`;
+        }
+        else if (provedor.rubro == "Golosinas") {
+            icon = `fa-solid fa-candy-cane`
+        }
+        else if (provedor.rubro == "Alcohol") {
+            icon = `fa-solid fa-champagne-glasses`
+
+        }
+        else if (provedor.rubro == "Helados") {
+            icon = `fa-solid fa-ice-cream`
+        }
+        else if (provedor.rubro == "Limpieza") {
+            icon = `fa-solid fa-pump-soap`;
+        }
+        else if (provedor.rubro == "Electronica") {
+            icon = `fa-solid fa-mobile-screen-button`
+        }
+        else if (provedor.rubro == "Fumador") {
+            icon = `fa-solid fa-joint`
+        }
+        else if (provedor.resultado == "Bebidas") {
+            icon = `fa-solid fa-bottle-water`
+        }
+
+
+        nuevoProvedor.innerHTML = `
+        <div class="card-header">${provedor.rubro}</div>
+        <div class="card-body">
+            <h4 class="card-title">${provedor.empresa}</h4>
+            <button class=" btn btn-dark">Ver info</button>
+            <i class="${icon}"></i>
+        `
+        listaProvedores.appendChild(nuevoProvedor)
+    }
+
 }
-
-
 // Funcion para cargar un provedor
 function cargarProvedor(array) {
-    let empresa = prompt("Empresa:");
-    let nombre = prompt("Nombre:");
-    let contacto = parseInt(prompt("Numero de contacto:"));
-    let rubro = prompt("Rubro:");
-    const provedor = new NuevoProvedor(empresa, nombre, contacto, rubro, array.length + 1);
-    array.push(provedor);
+    let inputEmpresa = document.getElementById("inputEmpresa");
+    let inputNombre = document.getElementById("inputNombre");
+    let inputContacto = document.getElementById("inputContacto");
+    let inputRubro = document.getElementById("inputRubro");
+
+const provedor = new NuevoProvedor(inputEmpresa.value, inputNombre.value, inputContacto.value, inputRubro.value);
+    array.unshift(provedor);
+    verProvedores(array)
 }
 
 
 // Funcion para eliminar un provedor de la lista
 function eliminarProvedor(array) {
-    console.log("Ingresá el ID del provedor a eliminar");
-    array.forEach(provedor => { console.log(provedor.mostrarInfoCorta()) });
-    let eliminarId = parseInt(prompt("ID: "))
-    let arrayWithId = array.map((Provedor) => Provedor.id)
-    let idSeleccionado = arrayWithId.indexOf(eliminarId);
-    if (arrayWithId.includes(eliminarId)) {
-        array.splice(idSeleccionado, 1);
+    let eliminarEmpresa = (prompt("Nombre de empresa a eliminar: ").toLowerCase())
+    let arrayWithEmpresa = array.map((Provedor) => Provedor.empresa.toLowerCase())
+    let empresaSeleccionada = arrayWithEmpresa.indexOf(eliminarEmpresa);
+    if (arrayWithEmpresa.includes(eliminarEmpresa)) {
+        array.splice(empresaSeleccionada, 1);
         alert(`Se ha eliminado satisfactoriamente.`);
+        verProvedores(array)
     }
     else {
         alert("No ingresaste ningun ID que concuerde con algún provedor. Volvé a intentarlo")
@@ -136,6 +193,8 @@ function eliminarProvedor(array) {
 
 
 }
+
+
 
 
 // Funcion para filtrar por rubro
@@ -154,12 +213,16 @@ function filtrarPorRubro(array) {
 
 // Buscar Por empresa
 function buscarEmpresa(array) {
+    let arrayEncontrado = []
     let empresaABuscar = prompt("¿Que empresa queres buscar?");
     let empresaEncontrada = array.find((nombre) => nombre.empresa.toLowerCase() == empresaABuscar.toLowerCase())
     if (empresaEncontrada == undefined) {
         alert(`La empresa ${empresaABuscar} no existe en la lista`)
     }
-    else { console.log(empresaEncontrada.mostrarinfo()) }
+    else {
+        arrayEncontrado[0] = empresaEncontrada;
+        verProvedores(arrayEncontrado)
+    }
 
 }
 
@@ -178,5 +241,52 @@ function ordenarAlfaEmpresa(array) {
         return 0;
     });
     verProvedores(arrayOrdenado)
+}
+
+// Ocultar Lista
+function ocultarLista() {
+    let ocultar = document.getElementById("rowCards")
+    ocultar.innerHTML = "";
+}
+
+
+
+
+
+
+
+
+//! EVENTOS
+
+
+//! EL ERRORE ESTA POR ACÁ.
+//! CUANDO PONGO LA FUNCION MOSTRAR LISTA SOBRE LAS OTRAS, DEJAN DE DE FUNCIONAR ESTAS ULTIMAS
+//! AL REVES LO MISMO.
+
+//! DEVUELVE UN ADDEVENTLISTENER NULL
+//? Resultado PRECIO VENTA
+
+let botonVenta = document.getElementById("botonVenta")
+botonVenta.onclick = () => {
+    
+    valorVenta()
+}
+
+
+
+//? Resultado VALOR I.V.A.
+
+let botonIva = document.getElementById("botonIva")
+botonIva.onclick = () => {
+    valorIva()
+}
+
+
+//? VER LISTA
+
+let verLista = document.getElementById("verLista")
+console.log(verLista)
+verLista.onclick = () =>{
+    verProvedores(LISTA)
 }
 

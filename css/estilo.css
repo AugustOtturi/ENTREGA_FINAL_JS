@@ -12,64 +12,134 @@ $textSize:;
 $iconsSize;
  */
 /*? Margins */
-header .navbar {
-  background-color: #cdb4db;
-  height: 10%; }
-  header .navbar .container-fluid .navbar-brand {
-    font-size: 3rem;
-    font-family: "Play", sans-serif; }
-  header .navbar .container-fluid .navbar-collapse ul li a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: black; }
-    header .navbar .container-fluid .navbar-collapse ul li a i {
-      vertical-align: auto;
-      color: black;
-      font-size: 1.7rem;
-      padding: 0 0.5rem; }
-    header .navbar .container-fluid .navbar-collapse ul li a:hover {
-      color: gray; }
+header .navbar .container-fluid {
+  height: 7rem; }
+  header .navbar .container-fluid .navbar-brand img {
+    height: 8rem;
+    width: 8rem;
+    margin-top: 2rem;
+    z-index: -2; }
+
+header .navbar .collapse .navbar-nav a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  transition: all ease 0.2s;
+  margin: 0 0.2rem;
+  position: relative;
+  text-align: center; }
+  header .navbar .collapse .navbar-nav a i {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+    vertical-align: text-bottom; }
+  header .navbar .collapse .navbar-nav a::before {
+    content: "";
+    height: 5%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 2%;
+    transform: scaleX(0);
+    transition: all ease 0.2s; }
+  header .navbar .collapse .navbar-nav a:hover::before {
+    transform: scaleX(1); }
+
+main .hero .container .row .columna-texto .heroTitulo {
+  font-size: 5rem; }
+
+main .hero .container .row .columna-texto .heroText {
+  font-size: 1.3rem;
+  font-family: "Roboto", sans-serif;
+  padding-bottom: 0.4rem; }
 
 /* !PROVEDORES  */
 body {
   background-color: #f7f7ff; }
 
-.inventario .container-fluid {
+main h1 {
+  text-align: center;
+  padding: 2rem 0;
+  font-style: italic; }
+
+main .plantilla {
   height: 100%;
   width: 100%; }
-  .inventario .container-fluid h1 {
-    text-align: center;
-    padding: 3rem; }
-  .inventario .container-fluid .botones {
-    background-color: #ef8989;
-    padding: 2rem 0;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; }
-    .inventario .container-fluid .botones button {
-      margin: 0.5rem 1rem; }
+  main .plantilla .btn-group {
+    margin: 0 1rem; }
+  main .plantilla .cardsProvedores .container-fluid .row {
+    width: 100%; }
+    main .plantilla .cardsProvedores .container-fluid .row .card {
+      margin: 2rem 1rem;
+      max-width: 21rem; }
+      main .plantilla .cardsProvedores .container-fluid .row .card .card-body i {
+        color: white;
+        font-size: 3.5rem;
+        position: absolute;
+        right: 2rem;
+        top: 4rem; }
+
+.Golosinas {
+  background: linear-gradient(45deg, #4099ff, #73b4ff); }
+
+.Alcohol {
+  background: linear-gradient(45deg, #2ed8b6, #59e0c5); }
+
+.Lacteos {
+  background: linear-gradient(45deg, #ffb64d, #ffcb80); }
+
+.Electronica {
+  background: linear-gradient(45deg, #ff5370, #ff869a); }
+
+.Fumador {
+  background-color: #e7e768; }
+
+.Helados {
+  background-color: violet; }
+
+.Limpieza {
+  background-color: #4fe34f; }
+
+.Bebidas {
+  background: #c825e9; }
+
+#offcanvasRight {
+  height: 100%; }
 
 /* UTILIDADES */
-.utilidades .container-fluid h1 {
-  text-align: center;
-  padding-top: 3rem; }
+.utilidades {
+  overflow-x: hidden; }
+  .utilidades .container-fluid h1 {
+    text-align: center;
+    padding-top: 3rem; }
+  .utilidades .container-fluid .row {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .utilidades .container-fluid .row .col-10 {
+      margin: 1.3rem; }
+      .utilidades .container-fluid .row .col-10 .card {
+        height: 25rem;
+        background-color: #bde0fe;
+        margin: 2rem 1rem; }
+        .utilidades .container-fluid .row .col-10 .card .card-body .card-title {
+          height: 15%;
+          font-size: 1.6rem; }
+        .utilidades .container-fluid .row .col-10 .card .card-body .card-text {
+          height: 65%;
+          text-align: justify;
+          font-size: 1.1rem; }
 
-.utilidades .container-fluid .row {
-  padding-top: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .utilidades .container-fluid .row .col-10 {
-    margin: 1.3rem; }
-    .utilidades .container-fluid .row .col-10 .card {
-      height: 25rem;
-      background-color: #bde0fe;
-      margin: 2rem 1rem; }
-      .utilidades .container-fluid .row .col-10 .card .card-body .card-title {
-        height: 15%;
-        font-size: 1.6rem; }
-      .utilidades .container-fluid .row .col-10 .card .card-body .card-text {
-        height: 65%;
-        text-align: justify;
-        font-size: 1.1rem; }
+/* ! 404 */
+/* offcanvas cargar */
+.offcanvas .offcanvas-body form .formDiv {
+  margin: 0.9rem 0;
+  width: 90%; }
+  .offcanvas .offcanvas-body form .formDiv label {
+    font-family: "Roboto", sans-serif; }
+  .offcanvas .offcanvas-body form .formDiv input, .offcanvas .offcanvas-body form .formDiv select {
+    border: 1px solid;
+    width: 90%; }
