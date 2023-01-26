@@ -1,6 +1,6 @@
 
 
-/* !CALCULAR PRECIO DE VENTA DE UN PRODUCTO */
+//! CALCULAR VALOR VENTA
 function valorVenta() {
     const VALOR_AGREGADO = document.getElementById("inputMargen")
     let num = document.getElementById("valorVentaInput")
@@ -13,7 +13,7 @@ function valorVenta() {
 }
 
 
-/* /* !CALCULAR IVA DE UN PRODUCTO */
+//! CALCULAR I.V.A. 
 function valorIva() {
     const IVA_ARGENTINA = 0.21;
     let valorProducto = document.getElementById("valorProductoInput")
@@ -23,51 +23,73 @@ function valorIva() {
     let construccion = document.createElement("div");
     construccion.innerHTML = `<p>I.V.A. es de ${resultado.toFixed(2)}$</p>`
     divPadre.appendChild(construccion)
-    
+
 }
 
 
 
-class Nuevocosto {
-    constructor(nombre, valor){
+// !CALCULAR COSTO OPERATIVO
+class NuevoOperativo {
+    constructor(nombre, valor) {
         this.nombre = nombre,
-        this.valor = valor
+            this.valor = valor
     }
-    verInfo(){
-        return `Nombre: ${this.nombre}
-                Valor: ${this.valor} ` 
+    verInfo() {
+        return `
+        Nombre: ${this.nombre}
+        Valor: ${this.valor} 
+                `
     }
 }
 
+const LISTA_OPERATIVO = []
+let sumaTotalCostos = 0;
+
+
+function crearOperativo() {
+    let inputNombre = document.getElementById("inputNombre")
+    let inputValor = document.getElementById("inputValor")
+    let plantillaResultado = document.getElementById("resultadoTotal")
+    plantillaResultado.innerHTML = ``;
+
+
+    const creador = new NuevoOperativo(inputNombre.value, inputValor.value)
+    LISTA_OPERATIVO.push(creador)
+    inputNombre.value = "";
+    inputValor.value = "";
 
 
 
+    sumaTotalCostos += parseInt(creador.valor);
 
-/* !CALCULADORA DE COSTO OPERATIVO */
-function costoOperativo() {
-    let veces = parseInt(prompt(`Cuantos servicios vas a sumar?`));
-    let suma = 0;
-    for (i = 0; i < veces; i++) {
-        suma += parseInt(prompt(`Ingrese el servicio nro ${i + 1}`));
-    }
 
-    let seleccion = parseInt(prompt(`
-    1 - Costo operativo mensual
-    2 - Costo operativo diario
-    3 - Volver a cargar los valores`))
-    switch (seleccion) {
-        case 1:
-            alert(`El costo operativo mensual de tu comercio es de: ` + suma);
-            break;
-        case 2:
-            let dias = parseInt(prompt(`¿Cuantos dias al mes mantenes comercio abierto?`));
-            let resultado = suma / dias;
-            alert(`El costo operativo diario es de: ${resultado.toFixed()} estando ${dias} dias abierto.`);
-            break;
-        case 3:
-            costoOperativo();
-        default:
-            alert(`Igresaste una opcion invalida, volvé a intentarlo`);
+    let plantillaCosto = document.getElementById("plantillaCosto")
+    let nuevoTR = document.createElement("tr")
+    nuevoTR.className = "filas"
+    nuevoTR.innerHTML = `<th scope="row">${LISTA_OPERATIVO.length}</th>
+    <td>${creador.nombre}</td>
+    <td>${creador.valor}$</td>`
+
+
+    plantillaCosto.appendChild(nuevoTR)
+
+
+
+}
+
+function verCostoResultados() {
+    swal({
+        title: "Costo Operativo",
+        text: `El costo operativo es de ${sumaTotalCostos.toFixed(2)}$
+                El costo operativo diario aproximado es de ${(sumaTotalCostos / 30).toFixed(2)}$`,
+        icon: "success",
+        button: "Continuar",
+    });
+
+    let plantilla = document.getElementsByClassName("filas")
+
+    for (let i = plantilla.length - 1; i >= 0; --i) {
+        plantilla[i].remove();
     }
 }
 
@@ -77,18 +99,32 @@ function costoOperativo() {
 
 //! EVENTOS
 
-//? boton PRECIO VENTA
+//? Boton PRECIO VENTA
 
 let botonVenta = document.getElementById("botonVenta")
 botonVenta.onclick = () => {
-    
+
     valorVenta()
 }
 
 
-//? boton VALOR I.V.A.
+//? Boton VALOR I.V.A.
 
 let botonIva = document.getElementById("botonIva")
 botonIva.onclick = () => {
     valorIva()
 }
+
+//? Boton crear nuevo costo
+
+let botonCosto = document.getElementById("botonCosto")
+botonCosto.addEventListener("click", () => {
+    crearOperativo()
+})
+
+//? Boton ver resultado de costo operativo
+
+let botonCostoVerResultado = document.getElementById("botonCostoVerResultado")
+botonCostoVerResultado.addEventListener("click", () => { verCostoResultados() })
+
+
