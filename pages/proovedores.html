@@ -44,74 +44,29 @@
     <main>
         <h1 class="display-3 fw-bold lh-5">Agenda</h1>
         <div class="plantilla">
-            <div class="btn-group btn-group-primary ms-1" role="group">
-                <button class="btn btn-dark ms-1" id="verLista">VER LISTA</button>
-                <!-- !OFFCANVAS -->
-                <button class="btn btn-dark ms-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight">CARGAR PROOVEDOR</button>
-                <!-- !CUERPO OFFCANVAS
-                 -->
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                    aria-labelledby="offcanvasRightLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasRightLabel">NUEVO PROVEDOR</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <form action="#" autocomplete="off">
-                            <div class="form-empresa formDiv">
-                                <label for="empresa" class="form-label">Empresa: </label>
-                                <input type="text" class="form-control" id="inputEmpresa" autocomplete="off">
-                            </div>
-                            <div class="form-contacto formDiv">
-                                <label for="Nombre" class="form-label">Representante: </label>
-                                <input type="text" class="form-control " id="inputNombre" autocomplete="off">
-                            </div>
-                            <div class="form-numero formDiv">
-                                <label for="contacto" class="form-label">Contacto: </label>
-                                <input type="text" class="form-control" id="inputContacto" autocomplete="off">
-                            </div>
-                            <div class="form-rubro formDiv">
-                                <label for="rubro" class="form-label">Rubro </label>
-                                <select class="form-select formDiv" aria-label="Rubro" id="inputRubro" autocomplete="off">
-                                    <option value= "Golosinas"selected>Golosinas</option>
-                                    <option value="Bebidas">Bebidas</option>
-                                    <option value="Alcohol">Alcohol</option>
-                                    <option value="Limpieza">Limpieza</option>
-                                    <option value="Electronica">Electronica</option>
-                                    <option value="Fumador">Fumador</option>
-                                </select>
+            <div class="btn-group btn-group-primary ms-1 d-flex justify-content-start w-25" role="group">
+                <button class="btn btn-success w-50 px-4 ms-1" id="verLista">LISTA</button>
 
-                            </div>
-                            <div class="form-submit formDiv">
-                                
-                            
-                                <input type="reset" value="Cargar" class="btn btn-dark ms-1 mt-4" onclick="cargarProvedor(LISTA)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                aria-controls="offcanvasRight">
-                                
-                            </div>
-                        </form>
-                    </div>
-                </div>
 
-                <button class="btn btn-dark ms-1" onclick="eliminarProvedor(LISTA)">ELIMINAR</button>
-                <button class="btn btn-dark ms-1" onclick="filtrarPorRubro(LISTA)">FILTRAR</button>
-                <input type="text" name="busquedaPorRubro" id="busquedaPorRubro">
-                <button class="btn btn-dark ms-1" onclick="buscarEmpresa(LISTA)">BUSCAR POR
+
+                <button class="btn btn-success w-50 px-4 ms-1" onclick="eliminarProvedor(LISTA)">ELIMINAR</button>
+                <button class="btn btn-success w-50 px-4 ms-1" onclick="filtrarPorRubro(LISTA)">FILTRAR</button>
+                <button class="btn btn-success w-50 px-4 ms-1" onclick="buscarEmpresa(LISTA)">
                     EMPRESA</button>
-                <button class="btn btn-dark ms-1" onclick="ordenarAlfaEmpresa(LISTA)">ORDENAR
-                    ALFABETICAMENTE
+                <button class="btn btn-success w-50 px-4 ms-1" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
+                        class="fa-solid fa-plus"></i></button>
+                <button class="btn btn-success w-50 px-4 ms-1" onclick="ordenarAlfaEmpresa(LISTA)"><i
+                        class="fa-solid fa-arrow-down-a-z"></i>
                 </button>
-                <button class="btn btn-dark ms-1 ms-1" onclick="ocultarLista()"><i class="fa-solid fa-xmark"></i></button>
-                
+                <button class="btn btn-success w-50 px-4 ms-1 ms-1" onclick="ocultarLista()"><i
+                        class="fa-solid fa-xmark"></i></button>
+
             </div>
-
-
-
             <div class="cardsProvedores">
                 <div class="container-fluid">
                     <div class="row d-flex justify-content-start" id="rowCards">
-                        
+
                     </div>
 
 
@@ -119,8 +74,52 @@
             </div>
         </div>
         </div>
+        <!-- !CUERPO OFFCANVAS
+                 -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">NUEVO PROVEDOR</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form action="#" autocomplete="off">
+                    <div class="form-empresa formDiv">
+                        <label for="empresa" class="form-label">Empresa: </label>
+                        <input type="text" class="form-control" id="inputEmpresa" autocomplete="off">
+                    </div>
+                    <div class="form-contacto formDiv">
+                        <label for="Nombre" class="form-label">Representante: </label>
+                        <input type="text" class="form-control " id="inputNombre" autocomplete="off">
+                    </div>
+                    <div class="form-numero formDiv">
+                        <label for="contacto" class="form-label">Contacto: </label>
+                        <input type="text" class="form-control" id="inputContacto" autocomplete="off">
+                    </div>
+                    <div class="form-rubro formDiv">
+                        <label for="rubro" class="form-label">Rubro </label>
+                        <select class="form-select formDiv" aria-label="Rubro" id="inputRubro" autocomplete="off">
+                            <option value="Golosinas" selected>Golosinas</option>
+                            <option value="Bebidas">Bebidas</option>
+                            <option value="Alcohol">Alcohol</option>
+                            <option value="Limpieza">Limpieza</option>
+                            <option value="Electronica">Electronica</option>
+                            <option value="Fumador">Fumador</option>
+                        </select>
+
+                    </div>
+                    <div class="form-submit formDiv">
+
+
+                        <input type="reset" value="Cargar" class="btn btn-dark ms-1 mt-4"
+                            onclick="cargarProvedor(LISTA)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                            aria-controls="offcanvasRight">
+
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
-    
+
 
 
 

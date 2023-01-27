@@ -67,8 +67,6 @@ main h1 {
 main .plantilla {
   height: 100%;
   width: 100%; }
-  main .plantilla .btn-group {
-    margin: 0 1rem; }
   main .plantilla .cardsProvedores .container-fluid .row {
     width: 100%; }
     main .plantilla .cardsProvedores .container-fluid .row .card {
