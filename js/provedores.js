@@ -52,9 +52,9 @@ const LISTA = [provedor1, provedor2, provedor3, provedor4, provedor5, provedor6,
 
 
 /* INICIO LISTA */
-/* verProvedores(LISTA)
+verProvedores(LISTA)
 
- */
+
 
 
 
