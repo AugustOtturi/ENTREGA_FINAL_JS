@@ -5,12 +5,19 @@ function valorVenta() {
     const VALOR_AGREGADO = document.getElementById("inputMargen")
     let num = document.getElementById("valorVentaInput")
     let resultado = num.value * VALOR_AGREGADO.value;
-    let divPadre = document.getElementById("resultadoVenta");
-    divPadre.innerHTML = ``;
-    let construccion = document.createElement("div")
-    construccion.innerHTML = `Precio de venta ${resultado.toFixed(2)}$`
-    divPadre.append(construccion)
-}
+    if(isNaN(resultado)){
+        resultado ="ERROR"
+    }
+    else{
+        let divPadre = document.getElementById("resultadoVenta");
+        divPadre.innerHTML = ``;
+        let construccion = document.createElement("div")
+        construccion.innerHTML = `Precio de venta ${resultado.toFixed(2)}$`
+        divPadre.append(construccion)
+    }
+
+    }
+   
 
 
 //! CALCULAR I.V.A. 
@@ -107,6 +114,18 @@ botonVenta.onclick = () => {
     valorVenta()
 }
 
+//? Input PRECIO VENTA
+let inputBotonVenta = document.getElementById("valorVentaInput")
+inputBotonVenta.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      valorVenta()
+    }
+});
+
+
+
+
+
 
 //? Boton VALOR I.V.A.
 
@@ -114,6 +133,21 @@ let botonIva = document.getElementById("botonIva")
 botonIva.onclick = () => {
     valorIva()
 }
+//? Input VALOR I.V.A.
+let inputBotonIva = document.getElementById("valorProductoInput")
+inputBotonIva.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      valorIva()
+    }
+});
+
+
+
+
+
+
+
+
 
 //? Boton crear nuevo costo
 
@@ -122,13 +156,19 @@ botonCosto.addEventListener("click", () => {
     crearOperativo()
 })
 
+
 //? Boton ver resultado de costo operativo
 
 let botonCostoVerResultado = document.getElementById("botonCostoVerResultado")
 botonCostoVerResultado.addEventListener("click", () => { verCostoResultados() })
 
 
-//? Boton refrescar pagina
+//? ENTER
 
-let botonRefrescarCosto = document.getElementById("botonRefrescar")
-botonRefrescarCosto.addEventListener("click", () => {location.reload()})
+let enterInputCosto = document.getElementById("inputValor")
+enterInputCosto.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      crearOperativo(   )
+    }
+});
+

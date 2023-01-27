@@ -133,12 +133,6 @@ main .plantilla {
           text-align: justify;
           font-size: 1.1rem; }
 
-/* ! 404 */
-.totalCosto {
-  position: relative;
-  left: 0rem;
-  bottom: 0rem; }
-
 /* offcanvas cargar */
 .offcanvas .offcanvas-body form .formDiv {
   margin: 0.9rem 0;

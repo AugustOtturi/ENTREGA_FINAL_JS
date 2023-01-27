@@ -142,14 +142,15 @@
                 aria-labelledby="offcanvasWithBackdropLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Costo Operativo</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close" id="botonRefrescar"></button>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"
+                        id="botonRefrescar"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <form action="#" class="form-control w-100 d-flex justify-content-center flex-column p-3" autocomplete="off">
+                    <form action="" class=" w-100 d-flex justify-content-center flex-column p-3"
+                        autocomplete="off">
                         <label for="texto" class="form-label">Razón</label>
-                        <select class="form-select w-100 p-2 border border-info" aria-label="Razon" id="inputNombre" autocomplete="off"
-                            placeholder="Razón">
+                        <select class="form-select w-100 p-2 border border-info" aria-label="Razon" id="inputNombre"
+                            autocomplete="off" placeholder="Razón">
                             <option selected disabled>Selecciona un motivo</option>
 
                             <option value="Agua">Agua</option>
@@ -166,12 +167,17 @@
 
                         </select>
                         <label for="valor" class="form-label">Importe</label>
-                        <input type="number" name="valor" id="inputValor" class="form-control w-100 p-2 border border-info" placeholder="$">
+                        <input type="number" class="form-control w-100 p-2 border border-info" placeholder="$"
+                            id="inputValor">
 
-                        <button id="botonCosto" type="button" class="btn btn-dark p-2 mt-3 align-items-center w-50 align-self-center">Cargar</button>
-                        <button id="botonCostoVerResultado" type="button" class="btn btn-success p-2 mt-3 align-items-center w-50 align-self-center">Ver resultados</button>
                     </form>
-                   
+                    <div class="botonosForm d-flex justify-content-center flex-column"><button id="botonCosto" type="button"
+                        class="btn btn-dark p-2 mt-3 align-items-center w-50 align-self-center">Cargar</button>
+                    <button id="botonCostoVerResultado" type="button"
+                        class="btn btn-success p-2 mt-3 align-items-center w-50 align-self-center">Ver
+                        resultados</button></div>
+                    
+
                     <div class="resultados" id="resultados">
                         <table class="table mt-3">
                             <thead>
@@ -181,13 +187,13 @@
                                     <th scope="col">Importe</th>
                                 </tr>
                             </thead>
-                            <tbody id="plantillaCosto"> 
+                            <tbody id="plantillaCosto">
                             </tbody>
                         </table>
 
                     </div>
                     <div class="resultadoTotal" id="resultadoTotal"></div>
-                    
+
 
                 </div>
             </div>
