@@ -114,7 +114,7 @@ function cargarProvedor(array) {
     let inputRubro = document.getElementById("inputRubro");
 
 const provedor = new NuevoProvedor(inputEmpresa.value, inputNombre.value, inputContacto.value, inputRubro.value);
-    array.unshift(provedor);
+    array.push(provedor);
     verProvedores(array)
 }
 
