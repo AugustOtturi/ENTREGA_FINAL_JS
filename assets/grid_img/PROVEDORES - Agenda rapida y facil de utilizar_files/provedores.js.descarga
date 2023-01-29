@@ -102,6 +102,7 @@ function verProvedores(array) {
             <p>Nombre: ${provedor.persona}</p>
             <p>Contacto: ${provedor.contacto}</p>
             <i class="${icon}"></i>
+            <p class="cerrar" id="boton${provedor.id}">X</p>
         `
         listaProvedores.appendChild(nuevoProvedor)
     }
@@ -122,7 +123,7 @@ const provedor = new NuevoProvedor(inputEmpresa.value, inputNombre.value, inputC
 
 // Funcion para eliminar un provedor de la lista
 function eliminarProvedor(array) {
-    let eliminarEmpresa = document.getElementById("inputEliminarCard").value.toLowerCase()
+    let eliminarEmpresa = (prompt("Nombre de empresa a eliminar: ").toLowerCase())
     let arrayWithEmpresa = array.map((Provedor) => Provedor.empresa.toLowerCase())
     let empresaSeleccionada = arrayWithEmpresa.indexOf(eliminarEmpresa);
     if (arrayWithEmpresa.includes(eliminarEmpresa)) {
@@ -187,6 +188,14 @@ function ordenarAlfaEmpresa(array) {
     verProvedores(arrayOrdenado)
 }
 
+// Ocultar Lista
+function ocultarLista() {
+    let ocultar = document.getElementById("rowCards")
+    ocultar.innerHTML = "";
+}
+
+
+
 
 
 
@@ -231,14 +240,3 @@ inputBuscarRubro.addEventListener('keypress', function (e) {
     }
 });
 
-
-
-
-
-let inputEliminarCard = document.getElementById("inputEliminarCard")
-inputEliminarCard.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      eliminarProvedor(LISTA)
-      inputEliminarCard.value = "";
-    }
-});

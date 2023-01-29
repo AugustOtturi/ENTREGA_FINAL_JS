@@ -172,3 +172,69 @@ enterInputCosto.addEventListener('keypress', function (e) {
     }
 });
 
+
+
+
+
+
+
+
+
+//! LINKS
+
+class Links{
+    constructor(nombre, link,img){
+        this.nombre = nombre,
+        this.link = link,
+        this.img = img
+    }
+}
+
+
+
+const ARCOR = new Links("arcor", "https://www.arcor.com/ar/", "../assets/grid_img/arcor.png")
+const BBC = new Links("bbc", "https://www.bbc.com/mundo", "../assets/grid_img/bbc.png")
+const CALENDAR = new Links("calendar", "https://calendar.google.com/calendar/u/0/r", "../assets/grid_img/calendar.png")
+const FACEBOOK = new Links("facebook", "https://facebook.com/", "../assets/grid_img/facebook.png")
+const GOOGLE = new Links("google", "https://www.google.com/", "../assets/grid_img/google.png")
+const INFOBAE = new Links("infobae", "https://www.infobae.com/", "../assets/grid_img/infobae.png")
+const INFOKIOSCO = new Links("infokiosco", "https://infokioscos.com.ar/", "../assets/grid_img/infokiosco.png")
+const LAYS = new Links("lays", "https://lays.es/", "../assets/grid_img/lays.png")
+const MERCADOLIBRE = new Links("mercadolibre", "https://www.mercadolibre.com.ar", "../assets/grid_img/mercadolibre.png")
+const MERCADOPAGO = new Links("mercadopago", "https://www.mercadopago.com.ar/home", "../assets/grid_img/mercadopago.png")
+const STELLA = new Links("stella artois", "https://www.stellaartois.com.ar/", "../assets/grid_img/stella_artois.png")
+const WHATSAPP = new Links("whatsapp", "https://web.whatsapp.com/", "../assets/grid_img/whatsapp.png")
+const YOUTUBE = new Links("youtube", "https://www.youtube.com/", "../assets/grid_img/youtube.png")
+const CKU = new Links("cku", "https://www.ckuweb.com/", "../assets/grid_img/cku.png")
+const COCACOLA = new Links("coca cola", "https://www.coca-cola.com.ar/", "../assets/grid_img/Coca-Cola.png")
+const SUBE = new Links("sube", "https://www.argentina.gob.ar/sube", "../assets/grid_img/sube.png")
+const PEPSI = new Links("pepsi", "https://www.pepsi.com/", "../assets/grid_img/PEPSI.png")
+const PAGINA12 = new Links("pagina12", "https://www.pagina12.com.ar/", "../assets/grid_img/pagina12.png")
+const TRELLO = new Links("trello", "https://trello.com/es", "../assets/grid_img/trello.png")
+const TWITTER = new Links("twitter", "https://twitter.com/?lang=es", "../assets/grid_img/twitter.png")
+const AFIP = new Links("afip", "https://www.afip.gob.ar", "../assets/grid_img/afip.png")
+const LANACION = new Links("lanacion", "https://www.lanacion.com.ar/", "../assets/grid_img/lanacion.png")
+const GOBIERNO = new Links("gobierno", "https://buenosaires.gob.ar/inicio/", "../assets/grid_img/gobierno.png") 
+const LINKEDIN = new Links("linkedin", "https://www.linkedin.com", "../assets/grid_img/linkedin.png") 
+const RAPPI = new Links("rappi", "https://www.rappi.com.ar/", "../assets/grid_img/rappi.png")
+const PEDIDOSYA = new Links("pedidosya", "https://www.pedidosya.com.ar/", "../assets/grid_img/pedidosya.png")
+
+
+
+const LINKS = [GOOGLE, CALENDAR, FACEBOOK, WHATSAPP, YOUTUBE, TRELLO, AFIP, BBC, INFOBAE, PAGINA12, LANACION, CKU, INFOKIOSCO, GOBIERNO, LINKEDIN, MERCADOPAGO, MERCADOLIBRE, RAPPI, PEDIDOSYA, COCACOLA, PEPSI, SUBE, LAYS,  ARCOR, STELLA]
+
+console.log(LINKS)
+
+
+
+
+for (let el of LINKS){
+    let grid = document.getElementById("gridLinks");
+    let nuevoLink = document.createElement("a");
+    nuevoLink.target = "_blank"
+    nuevoLink.href = el.link
+    nuevoLink.classList = "aLinks"
+    nuevoLink.innerHTML = `<img src="${el.img}" alt="logo ${el.nombre}" class="imgLinks">`
+    console.log(nuevoLink)
+    grid.appendChild(nuevoLink)
+}

@@ -44,28 +44,39 @@
     <main>
         <h1 class="display-3 fw-bold lh-5">Agenda</h1>
         <div class="plantilla">
-            <div class="btn-group btn-group-primary ms-1 d-flex justify-content-start w-25" role="group">
-                <button class="btn btn-success w-50 px-4 ms-1" id="verLista">LISTA</button>
-
-
-
-                <button class="btn btn-success w-50 px-4 ms-1" onclick="eliminarProvedor(LISTA)">ELIMINAR</button>
-                <button class="btn btn-success w-50 px-4 ms-1" onclick="filtrarPorRubro(LISTA)">FILTRAR</button>
-                <button class="btn btn-success w-50 px-4 ms-1" onclick="buscarEmpresa(LISTA)">
-                    EMPRESA</button>
-                <button class="btn btn-success w-50 px-4 ms-1" type="button" data-bs-toggle="offcanvas"
+            <div class="btn-group" ms-4 d-flex justify-content-start w-50" role="group">
+                <button class="btn btn-success px-4 ms-1" id="verLista">VER LISTA</button>
+                <div class="dropdown ms-1 ">
+                    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        BUSCAR 
+                    </button>
+                    <ul class="dropdown-menu">
+                        <input type="text" name="texto" id="inputBuscarNombre" class="dropdown-item form-control mt-2 border" autocomplete="off" placeholder="Buscar por nombre">
+                        <input type="text" name="texto" id="inputBuscarRubro" class="dropdown-item form-control mt-2 border" autocomplete="off" placeholder="Buscar por rubro">   
+                    </ul>
+                </div>
+                <button class="btn btn-success px-4 ms-1" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
                         class="fa-solid fa-plus"></i></button>
-                <button class="btn btn-success w-50 px-4 ms-1" onclick="ordenarAlfaEmpresa(LISTA)"><i
+                <button class="btn btn-success px-4 ms-1" onclick="ordenarAlfaEmpresa(LISTA)"><i
                         class="fa-solid fa-arrow-down-a-z"></i>
                 </button>
-                <button class="btn btn-success w-50 px-4 ms-1 ms-1" onclick="ocultarLista()"><i
-                        class="fa-solid fa-xmark"></i></button>
+                <div class="dropdown ms-1 ">
+                    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <input type="text" name="texto" id="inputEliminarCard" class="dropdown-item form-control mt-2 border" autocomplete="off" placeholder="Empresa a eliminar">
+                    </ul>
+                </div>
 
             </div>
+            <!-- !CARDS PROVEDORES -->
             <div class="cardsProvedores">
                 <div class="container-fluid">
-                    <div class="row d-flex justify-content-center   " id="rowCards">
+                    <div class="row d-flex justify-content-center " id="rowCards">
 
                     </div>
 
@@ -119,6 +130,9 @@
             </div>
         </div>
     </main>
+    <div class="whatsappbutton" id="whatsappbutton"><a href="https://web.whatsapp.com/" target="_blank"><i
+                class="fa-brands fa-whatsapp"></i></a></div>
+
 
 
 
