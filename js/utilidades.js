@@ -1,24 +1,15 @@
 
-
 //! CALCULAR VALOR VENTA
 function valorVenta() {
     const VALOR_AGREGADO = document.getElementById("inputMargen")
     let num = document.getElementById("valorVentaInput")
     let resultado = num.value * VALOR_AGREGADO.value;
-    if(isNaN(resultado)){
-        resultado ="ERROR"
-    }
-    else{
-        let divPadre = document.getElementById("resultadoVenta");
-        divPadre.innerHTML = ``;
-        let construccion = document.createElement("div")
-        construccion.innerHTML = `Precio de venta ${resultado.toFixed(2)}$`
-        divPadre.append(construccion)
-    }
-
-    }
-   
-
+    let divPadre = document.getElementById("resultadoVenta");
+    divPadre.innerHTML = ``;
+    let construccion = document.createElement("div")
+    isNaN(resultado) ? construccion.innerHTML = `No ingresaste ningún valor` : construccion.innerHTML = `Precio de venta ${resultado.toFixed(2)}$`;
+    divPadre.append(construccion)
+}
 
 //! CALCULAR I.V.A. 
 function valorIva() {
@@ -28,12 +19,10 @@ function valorIva() {
     let divPadre = document.getElementById("resultadoIva")
     divPadre.innerHTML = ``;
     let construccion = document.createElement("div");
-    construccion.innerHTML = `<p>I.V.A. es de ${resultado.toFixed(2)}$</p>`
+    isNaN(resultado) ? construccion.innerHTML = `<p>No ingresaste ningún valor</p>` : construccion.innerHTML = `<p>I.V.A. es de ${resultado.toFixed(2)}$</p>`
     divPadre.appendChild(construccion)
 
 }
-
-
 
 // !CALCULAR COSTO OPERATIVO
 class NuevoOperativo {
@@ -59,16 +48,12 @@ function crearOperativo() {
     let plantillaResultado = document.getElementById("resultadoTotal")
     plantillaResultado.innerHTML = ``;
 
-
     const creador = new NuevoOperativo(inputNombre.value, inputValor.value)
     LISTA_OPERATIVO.push(creador)
     inputNombre.value = "";
     inputValor.value = "";
 
-
-
     sumaTotalCostos += parseInt(creador.valor);
-
 
     let plantillaCosto = document.getElementById("plantillaCosto")
     let nuevoTR = document.createElement("tr")
@@ -101,95 +86,17 @@ function verCostoResultados() {
 }
 
 
-
-
-
-//! EVENTOS
-
-//? Boton PRECIO VENTA
-
-let botonVenta = document.getElementById("botonVenta")
-botonVenta.onclick = () => {
-
-    valorVenta()
-}
-
-//? Input PRECIO VENTA
-let inputBotonVenta = document.getElementById("valorVentaInput")
-inputBotonVenta.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      valorVenta()
-    }
-});
-
-
-
-
-
-
-//? Boton VALOR I.V.A.
-
-let botonIva = document.getElementById("botonIva")
-botonIva.onclick = () => {
-    valorIva()
-}
-//? Input VALOR I.V.A.
-let inputBotonIva = document.getElementById("valorProductoInput")
-inputBotonIva.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      valorIva()
-    }
-});
-
-
-
-
-
-
-
-
-
-//? Boton crear nuevo costo
-
-let botonCosto = document.getElementById("botonCosto")
-botonCosto.addEventListener("click", () => {
-    crearOperativo()
-})
-
-
-//? Boton ver resultado de costo operativo
-
-let botonCostoVerResultado = document.getElementById("botonCostoVerResultado")
-botonCostoVerResultado.addEventListener("click", () => { verCostoResultados() })
-
-
-//? ENTER
-
-let enterInputCosto = document.getElementById("inputValor")
-enterInputCosto.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      crearOperativo(   )
-    }
-});
-
-
-
-
-
-
-
-
-
 //! LINKS
+//! Construccion de LINKS ÚTILES
 
-class Links{
-    constructor(nombre, link,img){
+
+class Links {
+    constructor(nombre, link, img) {
         this.nombre = nombre,
-        this.link = link,
-        this.img = img
+            this.link = link,
+            this.img = img
     }
 }
-
 
 
 const ARCOR = new Links("arcor", "https://www.arcor.com/ar/", "../assets/grid_img/arcor.png")
@@ -214,21 +121,21 @@ const TRELLO = new Links("trello", "https://trello.com/es", "../assets/grid_img/
 const TWITTER = new Links("twitter", "https://twitter.com/?lang=es", "../assets/grid_img/twitter.png")
 const AFIP = new Links("afip", "https://www.afip.gob.ar", "../assets/grid_img/afip.png")
 const LANACION = new Links("lanacion", "https://www.lanacion.com.ar/", "../assets/grid_img/lanacion.png")
-const GOBIERNO = new Links("gobierno", "https://buenosaires.gob.ar/inicio/", "../assets/grid_img/gobierno.png") 
-const LINKEDIN = new Links("linkedin", "https://www.linkedin.com", "../assets/grid_img/linkedin.png") 
+const GOBIERNO = new Links("gobierno", "https://buenosaires.gob.ar/inicio/", "../assets/grid_img/gobierno.png")
+const LINKEDIN = new Links("linkedin", "https://www.linkedin.com", "../assets/grid_img/linkedin.png")
 const RAPPI = new Links("rappi", "https://www.rappi.com.ar/", "../assets/grid_img/rappi.png")
 const PEDIDOSYA = new Links("pedidosya", "https://www.pedidosya.com.ar/", "../assets/grid_img/pedidosya.png")
 
 
 
-const LINKS = [GOOGLE, CALENDAR, FACEBOOK, WHATSAPP, YOUTUBE, TRELLO, AFIP, BBC, INFOBAE, PAGINA12, LANACION, CKU, INFOKIOSCO, GOBIERNO, LINKEDIN, MERCADOPAGO, MERCADOLIBRE, RAPPI, PEDIDOSYA, COCACOLA, PEPSI, SUBE, LAYS,  ARCOR, STELLA]
+const LINKS = [GOOGLE, CALENDAR, FACEBOOK, WHATSAPP, YOUTUBE, TRELLO, AFIP, BBC, INFOBAE, PAGINA12, LANACION, CKU, INFOKIOSCO, GOBIERNO, LINKEDIN, MERCADOPAGO, MERCADOLIBRE, RAPPI, PEDIDOSYA, COCACOLA, PEPSI, SUBE, LAYS, ARCOR, STELLA]
 
 console.log(LINKS)
 
 
 
 
-for (let el of LINKS){
+for (let el of LINKS) {
     let grid = document.getElementById("gridLinks");
     let nuevoLink = document.createElement("a");
     nuevoLink.target = "_blank"
@@ -238,3 +145,60 @@ for (let el of LINKS){
     console.log(nuevoLink)
     grid.appendChild(nuevoLink)
 }
+
+
+
+
+//! EVENTOS
+
+//? click PRECIO VENTA
+let botonVenta = document.getElementById("botonVenta")
+botonVenta.onclick = () => {
+    valorVenta()
+}
+
+//? input PRECIO VENTA (enter)
+let inputBotonVenta = document.getElementById("valorVentaInput")
+inputBotonVenta.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        valorVenta()
+    }
+});
+
+
+//? click VALOR I.V.A.
+let botonIva = document.getElementById("botonIva")
+botonIva.onclick = () => {
+    valorIva()
+}
+//? Input VALOR I.V.A. (enter)
+let inputBotonIva = document.getElementById("valorProductoInput")
+inputBotonIva.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        valorIva()
+    }
+});
+
+
+//? click NUEVO COSTO
+let botonCosto = document.getElementById("botonCosto")
+botonCosto.addEventListener("click", () => {
+    crearOperativo()
+})
+
+//? input NUEVO COSTO (enter)
+let enterInputCosto = document.getElementById("inputValor")
+enterInputCosto.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        crearOperativo()
+    }
+});
+
+//? click VER RESULTADO COSTOS
+let botonCostoVerResultado = document.getElementById("botonCostoVerResultado")
+botonCostoVerResultado.addEventListener("click", () => { verCostoResultados() })
+
+
+
+
+

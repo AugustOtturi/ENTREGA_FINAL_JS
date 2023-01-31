@@ -1,50 +1,37 @@
-header {
-    .navbar {
-        .container-fluid {
-            height: 7rem;
-            .navbar-brand {
-                
-                img {
-                    height: 8rem;
-                    width: 8rem;
-                    margin-top: 2rem;
-                    z-index: -2;
-                }
-            }
+#logoImg {
+    height: 10rem;
+    width: 10rem;
+}
+
+#navv {
+    margin-right: 6rem;
+    li {
+        margin: 0 0.6rem;
+        position: relative;
+        a {
+            font-weight: 600;
+            font-size: 23px;
+            font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
         }
-        .collapse {
-            .navbar-nav {
-                a {
-                    font-size: 1.2rem;
-                    font-weight: 600;
-                    color: black;
-                    font-family: $font-family2;
-                    transition: all ease 0.2s;
-                    margin: 0 0.2rem;
-                    position: relative;
-                    text-align: center;
-                    i {
-                        font-size: 2rem;
-                        margin-right: 0.5rem;
-                        vertical-align:text-bottom;
-                    }
-                    &::before {
-                        content: "";
-                        height: 5%;
-                        width: 100%;
-                        background-color: black;
-                        display: flex;
-                        position: absolute;
-                        top: 100%;
-                        left: 2%;
-                        transform: scaleX(0);
-                        transition: all ease 0.2s;
-                    }
-                    &:hover::before {
-                        transform: scaleX(1);
-                    }
-                }
-            }
+        &::before{
+            content: "";
+            background-color: black;
+            height: 2px;
+            width: 100%;
+            display:flex;
+            position: absolute;
+            bottom: 0;
+            left: 0.2rem;
+            transform: scaleX(0);
+            transition: 300ms all ease;
+            
+        }
+        &:hover::before{
+            transform: scaleX(1);
+
         }
     }
 }
+
+
+

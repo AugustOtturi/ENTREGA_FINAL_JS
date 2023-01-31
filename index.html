@@ -21,32 +21,44 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-warning">
             <div class="container-fluid">
-                <a class="navbar-brand " href="./index.html"><img src="./assets/logo.png" alt="LOGO"></a>
+                <a class="navbar-brand" href="./index.html"><img src="./assets/logo.png" alt="Logo de ADM" id="logoImg"></a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link" href="./index.html">INICIO</a>
-                        <a class="nav-link" href="./pages/utilidades.html">UTILIDADES</a>
-                        <a class="nav-link" href="./pages/proovedores.html">PROVEDORES</a>
-                    </div>
+
+                <div class="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0" id="navv">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/utilidades.html">Utilidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/agenda.html">Agenda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="./pages/404.html">Notas</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+
     <main>
         <div class="hero">
             <div class="b-example-divider divisor"></div>
             <div class="container col-xxl-8 px-4 py-5">
-                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
                     <div class="col-10 col-sm-8 col-lg-6 columna">
 
                         <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_400xjh1o.json"
-                            background="transparent" speed="1" loop
-                            autoplay class="animacion"></lottie-player>
+                            background="transparent" speed="1" loop autoplay class="animacion"></lottie-player>
                     </div>
                     <div class="col-lg-6 columna-texto">
                         <h1 class="heroTitulo">Bienvenida/o</h1>
@@ -55,18 +67,19 @@
                             ¡Comenzá ya!
                         </p>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <a href="#gridLinks" class="btn btn-success btn-lg px-4 me-md-2">Comenzar</a>
+                            <a href="./pages/utilidades.html" class="btn btn-success btn-lg px-4 me-md-2">Comenzar</a>
 
                         </div>
                     </div>
                 </div>
             </div>
-            
+
 
         </div>
-        
+
     </main>
-    <div class="whatsappbutton" id="whatsappbutton"><a href="https://web.whatsapp.com/" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></div>
+    <div class="whatsappbutton" id="whatsappbutton"><a href="https://web.whatsapp.com/" target="_blank"><i
+                class="fa-brands fa-whatsapp"></i></a></div>
 
 
 

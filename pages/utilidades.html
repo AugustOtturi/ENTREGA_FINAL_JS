@@ -22,18 +22,30 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-warning">
             <div class="container-fluid">
-                <a class="navbar-brand " href="../index.html"><img src="../assets/logo.png" alt="LOGO"></a>
+                <a class="navbar-brand" href="../index.html"><img src="../assets/logo.png" alt="Logo de ADM"
+                        id="logoImg"></a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link" href="../index.html">INICIO</a>
-                        <a class="nav-link" href="./utilidades.html">UTILIDADES</a>
-                        <a class="nav-link" href="./proovedores.html">PROVEDORES</a>
-                    </div>
+
+                <div class="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0" id="navv">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./utilidades.html">Utilidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./agenda.html">Agenda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="./404.html">Notas</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -43,17 +55,19 @@
         <section class="utilidades">
             <!-- !HERO 1 -->
             <div class="container my-5 " data-aos="fade-right">
-                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 rounded-3 border shadow-lg ">
                     <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
                         <h1 class="display-3 fw-bold lh-5">Precio de venta</h1>
                         <p class="lead">Precio de venta es el precio final que paga el cliente por un producto o
                             servicio. Se llaman Precios de Venta a los precios que manejan los representantes de ventas,
                             tomando como base los precios de lista.
                         </p>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                            <input type="number" class="form-control w-25 p-3" placeholder="$" id="valorVentaInput">
-                            <select class="form-select w-25 p-3 " aria-label="Rubro" id="inputMargen" autocomplete="off"
-                                placeholder="Margen">
+                        <div
+                            class="d-grid gap-2 d-md-flex justify-content-md-start justify-content-sm-center mb-4 mb-lg-3 hero1Inputs">
+                            <input type="number" class="form-control min-vw-50 p-3" placeholder="$"
+                                id="valorVentaInput">
+                            <select class="form-select p-3 min-vw-50 " aria-label="Rubro" id="inputMargen"
+                                autocomplete="off" placeholder="Margen">
                                 <option selected disabled>Margen</option>
 
                                 <option value=1.30>30%</option>
@@ -69,9 +83,10 @@
                             </select>
                             <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
                                 id="botonVenta">Calcular</button>
-                            <div class="resultadoVenta mt-3 ml-5" id="resultadoVenta">
 
-                            </div>
+                        </div>
+                        <div class="resultadoVenta mt-3 ml-5" id="resultadoVenta">
+
                         </div>
                     </div>
                     <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
@@ -84,15 +99,16 @@
             </div>
             <!-- !HERO 2 -->
             <div class="container my-5" data-aos="fade-left">
-                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 d-flex flex-row-reverse rounded-3 border shadow-lg">
-                    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 rounded-3 border shadow-lg heroInverse">
+                    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3 ">
                         <h1 class="display-3 fw-bold lh-5">Costo Operativo</h1>
                         <p class="lead">El costo operativo de una empresa incluye todos los gastos relacionados con el
                             funcionamiento de una organización, tales como materiales, salarios de los empleados, entre
                             otras necesidades diversas.
                             Tener el control total de todos estos costos es una de las mejores formas de tener un
                             negocio aún más rentable.</p>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-center my-5 mb-4 mb-lg-3">
+                        <div
+                            class="d-grid gap-2 d-md-flex justify-content-md-center justify-content-md-start justify-content-sm-center my-5 mb-4 mb-lg-3">
                             <button class="btn btn-primary btn btn-primary btn btn-primary btn-lg px-4 me-md-2 fw-bold"
                                 type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
                                 aria-controls="offcanvasWithBackdrop">Comenzar</button>
@@ -117,12 +133,14 @@
                             de cada servicio que recibimos. En cada compra pagamos el precio del bien más el porcentaje
                             de impuestos que se le aplica a su coste. </p>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                            <input type="number" class="form-control w-25 p-3" placeholder="$" id="valorProductoInput">
+                            <input type="number" class="form-control w-50 p-3" placeholder="$"
+                                id="valorProductoInput">
                             <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
                                 id="botonIva">Calcular</button>
-                            <div class="resultadoIva     mt-3 ml-5" id="resultadoIva">
 
-                            </div>
+                        </div>
+                        <div class="resultadoIva     mt-3 ml-5" id="resultadoIva">
+
                         </div>
                     </div>
                     <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
@@ -142,11 +160,11 @@
                         <div class="containerfluid linksGrid">
                             <div class="gridLinks" id="gridLinks"></div>
                         </div>
-                        
-                    </div>
 
                     </div>
+
                 </div>
+            </div>
             </div>
         </section>
         <section class="offcanvasPlantilla">
@@ -159,8 +177,7 @@
                         id="botonRefrescar"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <form action="" class=" w-100 d-flex justify-content-center flex-column p-3"
-                        autocomplete="off">
+                    <form action="" class=" w-100 d-flex justify-content-center flex-column p-3" autocomplete="off">
                         <label for="texto" class="form-label">Razón</label>
                         <select class="form-select w-100 p-2 border border-info" aria-label="Razon" id="inputNombre"
                             autocomplete="off" placeholder="Razón">
@@ -184,12 +201,14 @@
                             id="inputValor">
 
                     </form>
-                    <div class="botonosForm d-flex justify-content-center flex-column"><button id="botonCosto" type="button"
-                        class="btn btn-dark p-2 mt-3 align-items-center w-50 align-self-center">Cargar</button>
-                    <button id="botonCostoVerResultado" type="button"
-                        class="btn btn-success p-2 mt-3 align-items-center w-50 align-self-center">Ver
-                        resultados</button></div>
-                    
+                    <div class="botonosForm d-flex justify-content-center flex-column"><button id="botonCosto"
+                            type="button"
+                            class="btn btn-dark p-2 mt-3 align-items-center w-50 align-self-center">Cargar</button>
+                        <button id="botonCostoVerResultado" type="button"
+                            class="btn btn-success p-2 mt-3 align-items-center w-50 align-self-center">Ver
+                            resultados</button>
+                    </div>
+
 
                     <div class="resultados" id="resultados">
                         <table class="table mt-3">
@@ -212,7 +231,8 @@
             </div>
         </section>
     </main>
-    <div class="whatsappbutton" id="whatsappbutton"><a href="https://web.whatsapp.com/" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></div>
+    <div class="whatsappbutton" id="whatsappbutton"><a href="https://web.whatsapp.com/" target="_blank"><i
+                class="fa-brands fa-whatsapp"></i></a></div>
 
 
 

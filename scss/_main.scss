@@ -1,5 +1,4 @@
 //! INDEX
-
 main {
     .hero {
         .container {
@@ -17,6 +16,16 @@ main {
             }
         }
     }
+}
+/* UTILIDADES */
+.utilidades {
+    .container{
+        .heroInverse{
+            flex-direction: row-reverse;
+            
+        }
+    }
+    overflow-x: hidden;
     .linksGrid {
         padding: 2rem 0;
         h2 {
@@ -53,10 +62,59 @@ main {
     }
 }
 
-/* !PROVEDORES  */
-body {
-    background-color: #f7f7ff;
+/* offcanvas cargar */
+
+.offcanvas {
+    .offcanvas-body {
+        form {
+            .formDiv {
+                margin: 0.9rem 0;
+                width: 90%;
+                label {
+                    font-family: $font-family2;
+                }
+                input,
+                select {
+                    border: 1px solid;
+                    width: 90%;
+                }
+            }
+        }
+    }
 }
+
+//! whatsappbutton
+
+#whatsappbutton {
+    display: block;
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+    a {
+        font-size: 4rem;
+        i {
+            color: rgb(0, 128, 0);
+            transition: 0.2s all ease;
+        }
+        transition: 0.2s all ease;
+    }
+    &:hover {
+        scale: 1.2;
+        transition: 0.2s all ease;
+        i {
+            color: rgb(6, 221, 6);
+            transition: 0.2s all ease;
+        }
+    }
+}
+
+/* !DROPDOWN */
+
+.dropdown-menu {
+    width: 14rem !important;
+    padding: 0.5rem;
+}
+/* !PROVEDORES  */
 main {
     h1 {
         text-align: center;
@@ -81,7 +139,7 @@ main {
                                 right: 2rem;
                                 top: 4rem;
                             }
-                            .cerrar{
+                            .cerrar {
                                 position: absolute;
                                 top: 0.5rem;
                                 right: 1rem;
@@ -122,95 +180,4 @@ main {
 }
 #offcanvasRight {
     height: 100%;
-}
-/* UTILIDADES */
-.utilidades {
-    overflow-x: hidden;
-    .container-fluid {
-        h1 {
-            text-align: center;
-            padding-top: 3rem;
-        }
-        .row {
-            padding-top: 5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .col-10 {
-                margin: 1.3rem;
-                .card {
-                    height: 25rem;
-                    background-color: $color4;
-                    margin: 2rem 1rem;
-                    .card-body {
-                        .card-title {
-                            height: 15%;
-                            font-size: 1.6rem;
-                        }
-                        .card-text {
-                            height: 65%;
-                            text-align: justify;
-                            font-size: 1.1rem;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-/* offcanvas cargar */
-
-.offcanvas {
-    .offcanvas-body {
-        form {
-            .formDiv {
-                margin: 0.9rem 0;
-                width: 90%;
-                label {
-                    font-family: $font-family2;
-                }
-                input,
-                select {
-                    border: 1px solid;
-                    width: 90%;
-                }
-            }
-        }
-    }
-}
-
-
-//! whatsappbutton
-
-#whatsappbutton {
-    display: block;
-    position: fixed;
-    bottom: 2rem;
-    right: 3rem;
-    a {
-        font-size: 4rem;
-        i {
-            color: rgb(0, 128, 0);
-            transition: 0.2s all ease;
-        }
-        transition: 0.2s all ease;
-    }
-    &:hover{
-        scale: 1.2;
-        transition: 0.2s all ease;
-        i{
-            color: rgb(6, 221, 6);
-            transition: 0.2s all ease;
-        }        
-    }
-}
-
-
-
-/* !DROPDOWN */
-
-.dropdown-menu{
-    width: 14rem !important;
-    padding: 0.5rem;
 }

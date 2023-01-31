@@ -1,0 +1,61 @@
+//! header
+
+@media (max-width: 992px) {
+    #navv {
+        li {
+            &::before {
+                width: 0;
+            }
+        }
+    }
+    .utilidades {
+        .container {
+            .row {
+                display: flex;
+                flex-direction: column-reverse !important;
+                .col-lg-4 {
+                    justify-content: center;
+                    display: flex;
+                }
+            }
+        }
+        .linksGrid{
+            .gridLinks{
+                .imgLinks{
+                    height: 5rem;
+                    width: 5rem;
+                }
+            }
+        }
+    }
+    #valorProductoInput{
+        margin: 0 auto;
+        width: 75% !important;
+    }
+}
+
+//! index
+
+@media (max-width: 768px) {
+    main {
+        .hero {
+            .container {
+                .row {
+                    .columna-texto {
+                        .heroTitulo {
+                            font-size: 12vw;
+                        }
+                        .heroText {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //!GLOBLAL
+    #whatsappbutton {
+        display: none;
+    }
+
+}
