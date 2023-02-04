@@ -114,7 +114,7 @@ main {
     width: 14rem !important;
     padding: 0.5rem;
 }
-/* !PROVEDORES  */
+/* !AGENDA  */
 main {
     h1 {
         text-align: center;
@@ -180,4 +180,30 @@ main {
 }
 #offcanvasRight {
     height: 100%;
+}
+
+
+//NOTAS
+
+main{
+    height: 100%;
+    .container-fluid{
+        height: 100%;
+        .notesGrid{
+            height: 100%;
+            width: 100%;
+            background-color: #4099ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            .notesDisplay{
+                background-color: black;
+                height: 33%;
+                width: 25%;
+            }
+        }
+
+    }
+    
 }

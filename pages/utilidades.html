@@ -42,9 +42,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./agenda.html">Agenda</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="./404.html">Notas</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -180,25 +177,24 @@
                     <form action="" class=" w-100 d-flex justify-content-center flex-column p-3" autocomplete="off">
                         <label for="texto" class="form-label">Razón</label>
                         <select class="form-select w-100 p-2 border border-info" aria-label="Razon" id="inputNombre"
-                            autocomplete="off" placeholder="Razón">
-                            <option selected disabled>Selecciona un motivo</option>
+                            autocomplete="off" placeholder="Razón" required>
+                            <option selected disabled value="no">Selecciona un motivo</option>
 
                             <option value="Agua">Agua</option>
-                            <option value="Luz">Luz</option>
                             <option value="Electricidad">Electricidad</option>
                             <option value="Gas">Gas</option>
                             <option value="Alquiler">Alquiler</option>
                             <option value="Abl">Abl</option>
                             <option value="Seguro">Seguro</option>
                             <option value="Empleado">Empleado</option>
-                            <option value="Sueldo">Sueldo</option>
                             <option value="Otros">Otros</option>
 
 
                         </select>
                         <label for="valor" class="form-label">Importe</label>
                         <input type="number" class="form-control w-100 p-2 border border-info" placeholder="$"
-                            id="inputValor">
+                            id="inputValor" required>
+                        <p id="errorText"></p>
 
                     </form>
                     <div class="botonosForm d-flex justify-content-center flex-column"><button id="botonCosto"

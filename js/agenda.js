@@ -1,6 +1,6 @@
-// CONTACTOS
+//! CONTACTOS
 
-//Constructor
+//! Constructor
 class NuevoContacto {
     constructor(empresa, persona, contacto, rubro, id) {
         this.empresa = empresa,
@@ -58,7 +58,7 @@ localStorage.setItem("LISTA", JSON.stringify(LISTA));
 verAgenda(LISTA);
 
 
-//Funcion para mostrar agenda
+//! Funcion para mostrar agenda
 function verAgenda(array) {
     let listaContactos = document.getElementById("rowCards");
     listaContactos.innerHTML = ``;
@@ -127,7 +127,7 @@ function cargarContacto(array) {
 }
 
 
-// Funcion para eliminar un contacto de la lista
+//! Funcion para eliminar un contacto de la lista
 function eliminarContacto(array) {
     let eliminarEmpresa = document.getElementById("inputEliminarCard").value.toLowerCase();
     let arrayWithEmpresa = array.map((contacto) => contacto.empresa.toLowerCase());
@@ -157,7 +157,7 @@ function eliminarContacto(array) {
 }
 
 
-// Funcion para filtrar por rubro
+//! Funcion para filtrar por rubro
 function filtrarPorRubro(array) {
     let rubro = document.getElementById("inputBuscarRubro").value
     let seleccion = array.filter(
@@ -176,7 +176,7 @@ function filtrarPorRubro(array) {
 }
 
 
-// Buscar Por empresa
+//! Buscar Por empresa
 function buscarEmpresa(array) {
     let arrayEncontrado = []
     let empresaABuscar = document.getElementById("inputBuscarNombre").value;
@@ -196,7 +196,7 @@ function buscarEmpresa(array) {
 
 }
 
-// Ordenar Alfabeticamente 
+//! Ordenar Alfabeticamente 
 
 function ordenarAlfaEmpresa(array) {
     const arrayOrdenado = [].concat(array)

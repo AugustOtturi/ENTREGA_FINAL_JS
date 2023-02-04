@@ -24,7 +24,7 @@ function valorIva() {
 
 }
 
-// !CALCULAR COSTO OPERATIVO
+//! CALCULAR COSTO OPERATIVO
 class NuevoOperativo {
     constructor(nombre, valor) {
         this.nombre = nombre,
@@ -43,27 +43,35 @@ let sumaTotalCostos = 0;
 
 
 function crearOperativo() {
-    let inputNombre = document.getElementById("inputNombre")
-    let inputValor = document.getElementById("inputValor")
-    let plantillaResultado = document.getElementById("resultadoTotal")
+    let inputNombre = document.getElementById("inputNombre");
+    let inputValor = document.getElementById("inputValor");
+    let plantillaResultado = document.getElementById("resultadoTotal");
+    let errorText = document.querySelector("#errorText");
     plantillaResultado.innerHTML = ``;
+    if (inputValor.value == 0 || inputNombre.value === "" || inputNombre.value === "no" ) {
+        errorText.innerHTML = `Te falta completar alguno de los campos`;
+        errorText.setAttribute("style","color:red;")
+    }
+    else {
+        errorText.innerHTML = ``;
+        const creador = new NuevoOperativo(inputNombre.value, inputValor.value)
+        LISTA_OPERATIVO.push(creador)
+        inputNombre.value = "";
+        inputValor.value = "";
 
-    const creador = new NuevoOperativo(inputNombre.value, inputValor.value)
-    LISTA_OPERATIVO.push(creador)
-    inputNombre.value = "";
-    inputValor.value = "";
+        sumaTotalCostos += parseInt(creador.valor);
 
-    sumaTotalCostos += parseInt(creador.valor);
-
-    let plantillaCosto = document.getElementById("plantillaCosto")
-    let nuevoTR = document.createElement("tr")
-    nuevoTR.className = "filas"
-    nuevoTR.innerHTML = `<th scope="row">${LISTA_OPERATIVO.length}</th>
+        let plantillaCosto = document.getElementById("plantillaCosto")
+        let nuevoTR = document.createElement("tr")
+        nuevoTR.className = "filas"
+        nuevoTR.innerHTML = `<th scope="row">${LISTA_OPERATIVO.length}</th>
     <td>${creador.nombre}</td>
     <td>${creador.valor}$</td>`
 
 
-    plantillaCosto.appendChild(nuevoTR)
+        plantillaCosto.appendChild(nuevoTR)
+
+    }
 
 
 
@@ -87,8 +95,6 @@ function verCostoResultados() {
 
 
 //! LINKS
-//! Construccion de LINKS ÚTILES
-
 
 class Links {
     constructor(nombre, link, img) {
@@ -150,7 +156,6 @@ for (let el of LINKS) {
 
 
 //! EVENTOS
-
 //? click PRECIO VENTA
 let botonVenta = document.getElementById("botonVenta")
 botonVenta.onclick = () => {

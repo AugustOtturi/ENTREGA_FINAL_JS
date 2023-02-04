@@ -1,28 +1,35 @@
-class Notas{
-    constructor(titulo, nota, id){
+class Nota{
+    constructor(titulo, nota){
         this.titulo = titulo,
-        this.nota = nota,
-        this.id = id
+        this.nota = nota
     }
 }
-const nota1 = new Notas("RECORDATORIO","askodaskdapsd", 1)
-const nota2 = new Notas("AVISOS","ASDASDASDSA", 1)
-const ARRAYNOTES = [nota1, nota2]
 
-createBoard()
+const Nota1 = new Nota("Recordatorio","El lunes por la mañana viene el plomero a ver el tema de la perdida de agua.")
+const Nota2 = new Nota("Recordatorio","El jueves es el cumple de maccu!")
 
-function createBoard(){
-    for(let el of ARRAYNOTES){
-        let divPadre = document.getElementById("notesGrid");
-        let cardNotes = document.createElement("div");
-        cardNotes.className = "cardNotes";
-        cardNotes.innerHTML = `<h2>${el.titulo}</h2>
-        <P>${el.nota}</P>
-        <span>${el.id}</span>
+
+const listaNotas = []
+
+listaNotas.push(Nota1,Nota2)
+
+
+console.log(listaNotas)
+console.log(Nota1)
+
+
+function createBoard(array){
+    let gridBoard = document.getElementById("notesGrid");
+    for (let el of array){
+        let newNota = document.createElement("div")
+        newNota.classList = "notesDisplay"
+        newNota.innerHTML = `
+        <h3>
+        ${el.titulo}</h3>
+        <p>${el.nota}</p>
         `
-        divPadre.appendChild(cardNotes)
-
+        gridBoard.appendChild(newNota)
     }
-   
-
 }
+
+createBoard(listaNotas)

@@ -21,7 +21,8 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-warning">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html"><img src="../assets/logo.png" alt="Logo de ADM" id="logoImg"></a>
+                <a class="navbar-brand" href="../index.html"><img src="../assets/logo.png" alt="Logo de ADM"
+                        id="logoImg"></a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -35,13 +36,10 @@
                             <a class="nav-link" href="../index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link "  href="./utilidades.html">Utilidades</a>
+                            <a class="nav-link " href="./utilidades.html">Utilidades</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="./agenda.html " aria-current="page">Agenda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="./404.html">Notas</a>
                         </li>
                     </ul>
                 </div>
@@ -54,39 +52,36 @@
     <main>
         <h1 class="display-3 fw-bold lh-5">Agenda</h1>
         <div class="plantilla">
-            <div class="btn-group ms-1 ms-sm-4 w-25 d-flex " role="group">
-                <button class="btn btn-success px-4 ms-1" id="verAgenda">VER</button>
-                <div class="dropdown ms-1 ">
-                    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        BUSCAR 
-                    </button>
-                    <ul class="dropdown-menu">
-                        <input type="text" name="texto" id="inputBuscarNombre" class="dropdown-item form-control mt-2 border" autocomplete="off" placeholder="Buscar por nombre">
-                        <input type="text" name="texto" id="inputBuscarRubro" class="dropdown-item form-control mt-2 border" autocomplete="off" placeholder="Buscar por rubro">   
-                    </ul>
-                </div>
-                <button class="btn btn-success px-4 ms-1" type="button" data-bs-toggle="offcanvas"
+            <div class="btn-group ms-1 ms-sm-4" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary" id="verAgenda"><i class="fa-solid fa-eye"></i></button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
                         class="fa-solid fa-plus"></i></button>
-                <button class="btn btn-success px-4 ms-1" id="ordenarAlfaEmpresa"><i
-                        class="fa-solid fa-arrow-down-a-z"></i>
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-minus"></i>
                 </button>
-                <div class="dropdown ms-1 ">
-                    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="fa-solid fa-x"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <input type="text" name="texto" id="inputEliminarCard" class="dropdown-item form-control mt-2 border" autocomplete="off" placeholder="Empresa a eliminar">
-                    </ul>
-                </div>
-
+                <ul class="dropdown-menu">
+                    <li><input type="text" id="inputEliminarCard" placeholder="Empresa a eliminar"
+                            class="form-control my-2"></li>
+                </ul>
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><input type="text" id="inputBuscarNombre" placeholder="Ingresa un nombre"
+                            class="form-control my-2"></li>
+                    <li><input type="text" id="inputBuscarRubro" placeholder="Ingresa un rubro"
+                            class="form-control my-2"></li>
+                </ul>
+                <button type="button" class="btn btn-primary" id="ordenarAlfaEmpresa"><i
+                        class="fa-solid fa-arrow-down-a-z"></i></button>
             </div>
+
+
             <!-- !CARDS PROVEDORES -->
             <div class="cardsProvedores">
                 <div class="container-fluid">
-                    <div class="row d-flex justify-content-center " id="rowCards">
+                    <div class="row d-flex justify-content-start" id="rowCards">
 
                     </div>
 
@@ -131,9 +126,8 @@
                     <div class="form-submit formDiv">
 
 
-                        <input type="reset" value="Cargar" class="btn btn-dark ms-1 mt-4"
-                            id="btnCargarContacto" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                            aria-controls="offcanvasRight">
+                        <input type="reset" value="Cargar" class="btn btn-dark ms-1 mt-4" id="btnCargarContacto"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
 
                     </div>
                 </form>
