@@ -6,17 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGENDA - Rápida y fácil de utilizar</title>
-    <script src="https://kit.fontawesome.com/6da7673045.js" crossorigin="anonymous"></script>
+    <!--! FAVICON -->
+    <link rel="shortcut icon" href="../assets/favicon-32x32.png" type="image/x-icon">
+    <!--! BOOSTRAP  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!--! GOOGLE FONTS  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400&family=Titan+One&display=swap"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400&family=Titan+One&display=swap" rel="stylesheet">
+    <!--! CSS  -->
     <link rel="stylesheet" href="../css/estilo.css">
 </head>
 
 <body>
+    <!-- HEADER -->
     <header>
         <nav class="navbar navbar-expand-lg bg-warning">
             <div class="container-fluid">
@@ -51,7 +54,6 @@
     </header>
 
     <!-- MAIN -->
-
     <main>
         <h1 class="display-3 fw-bold lh-5 text-center my-3">Agenda</h1>
         <div class="plantilla">
@@ -62,13 +64,15 @@
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-toggle="tooltip"
                     data-placement="top" title="Agregar nuevo contacto"><i class="fa-solid fa-plus"></i></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-minus" data-toggle="tooltip" data-placement="top" title="Eliminar contacto" ></i>
+                    <i class="fa-solid fa-minus" data-toggle="tooltip" data-placement="top"
+                        title="Eliminar contacto"></i>
                 </button>
                 <ul class="dropdown-menu">
                     <li><input type="text" id="inputEliminarCard" placeholder="Empresa a eliminar"
                             class="form-control my-2"></li>
                 </ul>
-                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" data-toggle="tooltip" data-placement="top" title="Filtrar contactos" >
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false"
+                    data-toggle="tooltip" data-placement="top" title="Filtrar contactos">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
                 <ul class="dropdown-menu">
@@ -77,7 +81,8 @@
                     <li><input type="text" id="inputBuscarRubro" placeholder="Ingresa un rubro"
                             class="form-control my-2"></li>
                 </ul>
-                <button type="button" class="btn btn-primary" id="ordenarAlfaEmpresa" data-toggle="tooltip" data-placement="top" title="Ordenar Alfabeticamente" ><i
+                <button type="button" class="btn btn-primary" id="ordenarAlfaEmpresa" data-toggle="tooltip"
+                    data-placement="top" title="Ordenar Alfabeticamente"><i
                         class="fa-solid fa-arrow-down-a-z"></i></button>
             </div>
 
@@ -97,7 +102,7 @@
         </div>
         </div>
         <!-- !CUERPO OFFCANVAS
-                 -->
+    -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasRightLabel">NUEVO PROVEDOR</h5>
@@ -149,12 +154,20 @@
 
 
 
+    <!--! FONTAWESOME  -->
+                <script src="https://kit.fontawesome.com/6da7673045.js" crossorigin="anonymous"></script>
+    <!--! SWEETALERT  -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="
+    <!--! BOOSTRAP JS  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!--! LUXON  -->
+        <script src="
         https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
         "></script>
-    <script src="../js/agenda.js"></script>
+    <!--! AGENDA.JS  -->
+        <script src="../js/agenda.js"></script>
 </body>
 
 </html>

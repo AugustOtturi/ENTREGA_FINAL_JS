@@ -8,7 +8,7 @@
             }
         }
     }
-    .fecha{
+    .fecha {
         position: absolute;
         top: 50% !important;
         right: 1rem !important;
@@ -18,24 +18,33 @@
     .utilidades {
         .container {
             .row {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
+                -webkit-box-orient: vertical !important;
+                -webkit-box-direction: reverse !important;
+                -ms-flex-direction: column-reverse !important;
                 flex-direction: column-reverse !important;
                 .col-lg-4 {
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
                     justify-content: center;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
                 }
             }
         }
-        .linksGrid{
-            .gridLinks{
-                .imgLinks{
+        .linksGrid {
+            .gridLinks {
+                .imgLinks {
                     height: 5rem;
                     width: 5rem;
                 }
             }
         }
     }
-    #valorProductoInput{
+    #valorProductoInput {
         margin: 0 auto;
         width: 75% !important;
     }
@@ -64,5 +73,4 @@
     #whatsappbutton {
         display: none;
     }
-
 }

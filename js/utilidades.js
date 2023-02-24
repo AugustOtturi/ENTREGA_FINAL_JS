@@ -20,10 +20,10 @@ function valorVenta() {
     let divPadre = document.getElementById("resultadoVenta");
     divPadre.innerHTML = ``;
     let construccion = document.createElement("div");
-    num.value == 0 ? construccion.innerHTML = `No ingresaste ningún valor` : construccion.innerHTML = `Precio de venta ${resultado.toFixed(2)}$`;
+    resultado == 0 ? construccion.innerHTML = `<p style="color:red;">No ingresaste ningún valor.</p>` : construccion.innerHTML = `Precio de venta ${resultado.toFixed(2)}$`;
     divPadre.append(construccion);
     /* Reset input */
-    num.value = `0`;
+    num.value = ``;
 
 }
 
@@ -35,10 +35,10 @@ function valorIva() {
     let divPadre = document.getElementById("resultadoIva");
     divPadre.innerHTML = ``;
     let construccion = document.createElement("div");
-    resultado == 0 ? construccion.innerHTML = `<p>No ingresaste ningún valor</p>` : construccion.innerHTML = `<p>I.V.A. es de ${resultado.toFixed(2)}$</p>`;
+    resultado == 0 ? construccion.innerHTML = `<p style="color:red;">No ingresaste ningún valor.</p>` : construccion.innerHTML = `I.V.A. ${resultado.toFixed(2)}$`;
     divPadre.appendChild(construccion);
     /* Reset input */
-    valorProducto.value =`0`;
+    valorProducto.value =``;
     
 
 }
@@ -99,13 +99,11 @@ function verCostoResultados() {
     swal({
         title: "Costo Operativo",
         text: `El costo operativo es de ${sumaTotalCostos.toFixed(2)}$
-                El costo operativo diario aproximado es de ${(sumaTotalCostos / 30).toFixed(2)}$`,
+               El costo operativo diario es de ${(sumaTotalCostos / 30).toFixed(2)}$`,
         icon: "success",
         button: "Continuar",
     });
-
     let plantilla = document.getElementsByClassName("filas")
-
     for (let i = plantilla.length - 1; i >= 0; --i) {
         plantilla[i].remove();
     }

@@ -1,4 +1,4 @@
-//!FECHA Y HORA
+//! FECHA Y HORA
 setInterval(() => {
     // HORA
     const time = luxon.DateTime.now().toLocaleString(luxon.DateTime.TIME_WITH_SECONDS);
@@ -14,7 +14,6 @@ setInterval(() => {
 
 
 //! CONTACTOS
-
 class NuevoContacto {
     constructor(empresa, persona, contacto, rubro, id) {
         this.empresa = empresa,
@@ -40,16 +39,10 @@ class NuevoContacto {
     };
 }
 
-
-
-
-
 let LISTA = [];
 
-//setear estanteria con async await
 const mostrarContactos = async () => {
-    //ruta relativa del html al JSON y abrirlo con LIVESERVER
-    //!ACÁ ME VI OBLIGADO A PONER ../, SINO ME TOMA QUE EL CONTACTOS.JSON ESTÁ EN LA CARPETA PAGES.
+    // ACÁ ME VI OBLIGADO A PONER ../, SINO ME TOMA QUE EL CONTACTOS.JSON ESTÁ EN LA CARPETA PAGES.
     const res = await fetch("../contactos.json")
     const data = await res.json()
 
@@ -64,19 +57,18 @@ const mostrarContactos = async () => {
 }
 
 
-
-
-
-
-/* ARRAY MASTER */
+//! ARRAY MASTER
 /* SETEO LOCALSTORAGE */
 if (localStorage.getItem("LISTA")) {
 
-    LISTA = JSON.parse(localStorage.getItem("LISTA"))
+    for(let contacto of JSON.parse(localStorage.getItem("LISTA"))){
+        let contactoNuevo = new NuevoContacto(contacto.empresa, contacto.persona, contacto.contacto, contacto.rubro, contacto.id)
+        LISTA.push(contactoNuevo)
+        
+    }
+    
 }
 else {
-    console.log("entra por primera vez, setea libros");
-    
     mostrarContactos()
 
 }
@@ -84,7 +76,6 @@ else {
 
 
 /* INICIO LISTA - SPINNER */
-
 let spinner = document.querySelector("#spinner");
 setTimeout(() => {
     spinner.remove()
@@ -206,7 +197,6 @@ function eliminarContacto(array) {
 }
 
 
-
 //! Funcion para filtrar por rubro
 function filtrarPorRubro(array) {
     let rubro = document.getElementById("inputBuscarRubro").value
@@ -265,7 +255,7 @@ function ordenarAlfaEmpresa(array) {
 
 
 
-//! EVENTOS
+//? EVENTOS
 
 //? CARGAR CONTACTO
 let btnCargarContacto = document.getElementById("btnCargarContacto")
@@ -316,11 +306,6 @@ btnOrdenarAlfa.addEventListener("click", () => {
 })
 
 
-
-
-
-
-
-//TOOLTIPS
+//?TOOLTIPS
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
