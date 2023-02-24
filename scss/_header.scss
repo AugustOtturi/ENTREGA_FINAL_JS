@@ -31,6 +31,25 @@
 
         }
     }
+ 
+}
+
+.collapse{
+    .fecha{
+        position: absolute;
+        top: 35%;
+        right: 3rem;
+        font-size: 1.2rem;
+        text-align: center;
+        font-family: $font-family2  ;
+        p{ 
+            color: black;
+            margin: 0;
+            &:nth-child(2){
+                font-size: 1.1rem;
+            }
+        }
+    }
 }
 
 

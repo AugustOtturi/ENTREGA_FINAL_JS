@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "tip": "Vive dentro de tus posibilidades. No hacerlo implica un engaño a ti mismo: llegarás a las quincenas con la cuenta de banco en ceros, te costará trabajo cumplir con tus gastos, vivirás al día y ya no hablemos de ahorrar o invertir. Es momento de mantener en la medida de lo posible nuestra calidad de vida y no deteriorarla por gastar lo que no tenemos."
+    },
+    {
+        "id": 2,
+        "tip": "Sé consciente de tus ingresos. Identifica el nivel de seguridad que tienes de recibirlos. La principal misión aquí es no hacer castillos en el aire y tomar en cuenta sólo el dinero que realmente recibirás cada quincena o mes."
+    },
+    {
+        "id": 3,
+        "tip":"Ten registro de los egresos. Si no sabes en qué gastas, es imposible que puedas optimizar tu dinero. Basta con apuntar este rubro en una libreta pero si el método tradicional te cuesta trabajo, puedes ayudarte de la tecnología, ya que existen aplicaciones móviles para llevar un buen control de lo que egresas."
+    },
+    {
+        "id": 4,
+        "tip": "Analiza tu balance financiero. Suena complicado, pero en realidad es algo muy sencillo. Para saber qué tipo de balance tienes, resta la totalidad de tus gastos a tus ingresos: un balance positivo es que, al final del mes, tus gastos no son mayores o iguales que tus ingresos. Si tienes dinero sobrante, es positivo. Si no tienes sobrante o te endeudas, es negativo."
+    },
+    {
+        "id": 5,
+        "tip": "Ahorra. Si tu balance es positivo con un dinero extra, la mejor decisión es destinar esos recursos al ahorro. Existen diferentes esquemas para guardar tu dinero, pero los más confiables son los que te ofrecen las instituciones especializadas, pues es muy peligroso tener el dinero guardado en casa."
+    },
+    {
+        "id": 6,
+        "tip": "Crea un fondo de emergencias. Aunque forma parte del ahorro, este cumple una función muy específica: resolver cualquier problema que pueda afectar tu estabilidad emocional y financiera. Una emergencia para la que no tienes un respaldo puede neutralizar por completo todas tus acciones para cuidar tu dinero."
+    },
+    {
+        "id": 7,
+        "tip": "Elimina los gastos variables que puedas. Los gastos variables son aquellos que no son necesarios para subsistir. Para disminuirlos, puedes empezar por eliminar todos aquellos que no retribuyen positivamente en tu vida."
+    },
+    {
+        "id": 8,
+        "tip": "Utiliza sólo el efectivo necesario. El dinero en efectivo es una tentación constante, además de que conlleva riesgos. Procura planear bien tu día para no llevar más de lo que necesitas y recuerda que el efectivo es el mejor amigo de los gastos innecesarios."
+    },
+    {
+        "id": 9,
+        "tip": "Cuidado con la tarjeta de crédito. Utiliza tu plástico sólo para los gastos que valgan la pena y trata de liquidar tus deudas antes de adquirir nuevas. Nunca uses tu tarjeta como dinero extra, pues es un instrumento de financiamiento que incluye un precio por usarla (los intereses)."
+    },
+    {
+        "id": 10,
+        "tip": "No te endeudes de más. Debes mantener las deudas controladas y usar las opciones de crédito a tu favor. Establece un límite muy claro e inalterable: “No endeudarme más allá de lo que puedo pagar”."
+    },
+    {
+        "id": 11,
+        "tip": "Procura pagar tus impuestos. Sí, aunque no lo creas es una forma de ahorrar y de mantener estabilidad financiera: si estás al corriente en el pago de tus impuestos, te ahorrarás recargos que con el tiempo pueden convertirse en una bola de nieve de deudas."
+    },
+    {
+        "id": 12,
+        "tip": "Hazlo tú mismo. Si haces las reparaciones de tu hogar, puedes no gastar de más y ahorrar. Todo dinero salvado es de utilidad para una época de crisis, pero si el trabajo requiere de mucha especialización, lo mejor es contratar a alguien: a veces podemos convertir la fuga de agua en una inundación en la cocina."
+    },
+    {
+        "id": 13,
+        "tip": "Aprovecha la banca digital. La nueva normalidad nos ha alentado a utilizar las soluciones financieras diseñadas para ser aprovechadas desde el hogar: transferencias, pagos de servicios, compras por internet, entre muchas otras. La banca online es una de las mejores herramientas para esta época en que debemos resguardarnos en casa lo más posible."
+    },
+    {
+        "id": 14,
+        "tip": "Cuida tu salud física. Porque va muy de la mano de tu salud financiera. Ahora más que nunca nos damos cuenta que los gastos en salud pueden ser estratosféricos. Si llevamos un estilo de vida saludable, tenemos más probabilidades de evitar sobresaltos económicos."
+    },
+    {
+        "id": 15,
+        "tip": "Aprende de finanzas personales. Entre más información al respecto recabes periódicamente (de libros, revistas, periódicos web, blogs especializados...), podrás tomar mejores decisiones que abonarán a tu calidad de vida."
+    }
+]

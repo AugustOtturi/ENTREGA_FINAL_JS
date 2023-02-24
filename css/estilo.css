@@ -39,6 +39,19 @@ $iconsSize;
     #navv li:hover::before {
       transform: scaleX(1); }
 
+.collapse .fecha {
+  position: absolute;
+  top: 35%;
+  right: 3rem;
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: "Roboto", sans-serif; }
+  .collapse .fecha p {
+    color: black;
+    margin: 0; }
+    .collapse .fecha p:nth-child(2) {
+      font-size: 1.1rem; }
+
 main .hero .container .row .columna-texto .heroTitulo {
   font-size: 5rem; }
 
@@ -116,31 +129,33 @@ main .hero .container .row .columna-texto .heroText {
   padding: 0.5rem; }
 
 /* !AGENDA  */
-main h1 {
-  text-align: center;
-  padding: 2rem 0;
-  font-style: italic; }
-
-main .plantilla {
-  height: 100%;
-  width: 100%; }
-  main .plantilla .cardsProvedores .container-fluid .row {
+main {
+  /* h1 {
+        text-align: center;
+        padding: 2rem 0;
+        font-style: italic;
+    } */ }
+  main .plantilla {
+    height: 100%;
     width: 100%; }
-    main .plantilla .cardsProvedores .container-fluid .row .card {
-      margin: 2rem 1rem;
-      max-width: 21rem; }
-      main .plantilla .cardsProvedores .container-fluid .row .card .card-body i {
-        color: white;
-        font-size: 3.5rem;
-        position: absolute;
-        right: 2rem;
-        top: 4rem; }
-      main .plantilla .cardsProvedores .container-fluid .row .card .card-body .cerrar {
-        position: absolute;
-        top: 0.5rem;
-        right: 1rem;
-        cursor: pointer; }
+    main .plantilla .cardsProvedores .container-fluid .row {
+      width: 100%; }
+      main .plantilla .cardsProvedores .container-fluid .row .card {
+        margin: 2rem 1rem;
+        max-width: 21rem; }
+        main .plantilla .cardsProvedores .container-fluid .row .card .card-body i {
+          color: white;
+          font-size: 3.5rem;
+          position: absolute;
+          right: 2rem;
+          top: 5rem; }
+        main .plantilla .cardsProvedores .container-fluid .row .card .card-body .cerrar {
+          position: absolute;
+          top: 0.5rem;
+          right: 1rem;
+          cursor: pointer; }
 
+/* !RUBROS */
 .Golosinas {
   background: linear-gradient(45deg, #4099ff, #73b4ff); }
 
@@ -168,26 +183,38 @@ main .plantilla {
 #offcanvasRight {
   height: 100%; }
 
-main {
-  height: 100%; }
-  main .container-fluid {
-    height: 100%; }
-    main .container-fluid .notesGrid {
-      height: 100%;
-      width: 100%;
-      background-color: #4099ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap; }
-      main .container-fluid .notesGrid .notesDisplay {
-        background-color: black;
-        height: 33%;
-        width: 25%; }
+.row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; }
+  .row .notasCard {
+    margin: 20px;
+    background-color: #4099ff;
+    border: 1px solid;
+    min-height: 50vh;
+    text-align: center; }
+
+.swal-modal {
+  padding: 1rem; }
+  .swal-modal .swal-title {
+    font-size: 2rem;
+    font-family: "Roboto", sans-serif; }
+  .swal-modal .swal-text {
+    line-height: 1.5rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    text-align: justify; }
 
 @media (max-width: 992px) {
   #navv li::before {
     width: 0; }
+  .fecha {
+    position: absolute;
+    top: 50% !important;
+    right: 1rem !important;
+    font-size: 1.2rem;
+    text-align: center; }
   .utilidades .container .row {
     display: flex;
     flex-direction: column-reverse !important; }

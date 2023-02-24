@@ -1,6 +1,20 @@
+//!FECHA Y HORA
+setInterval(() => {
+    // HORA
+    const time = luxon.DateTime.now().toLocaleString(luxon.DateTime.TIME_WITH_SECONDS);
+    horaDOM = document.querySelector("#hora");
+    horaDOM.innerHTML = `${time}`;
+    // FECHA
+    const date = luxon.DateTime.now().toLocaleString(luxon.DateTime.DATE_SHORT);
+    fechaDOM = document.querySelector("#fecha");
+    fechaDOM.innerHTML = `${date}`;
+
+}, 1000);
+
+
+
 //! CONTACTOS
 
-//! Constructor
 class NuevoContacto {
     constructor(empresa, persona, contacto, rubro, id) {
         this.empresa = empresa,
@@ -26,36 +40,57 @@ class NuevoContacto {
     };
 }
 
-/* CONTACTOS PRE-CARGADOS */
-const contacto1 = new NuevoContacto("Arcor", "Juan Pablo", 1599999999, "Golosinas", 1);
-const contacto2 = new NuevoContacto("Frigor", "Marina", 1599999999, "Helados", 2);
-const contacto3 = new NuevoContacto("Quilmes", "Raul", 1599999999, "Alcohol", 3);
-const contacto4 = new NuevoContacto("Aralex", "Marta", 1599999999, "Fumador", 4);
-const contacto5 = new NuevoContacto("Fali", "Juan Cruz", 1599999999, "Fumador", 5);
-const contacto6 = new NuevoContacto("La Dolce", "María", 1599999999, "Golosinas", 6);
-const contacto7 = new NuevoContacto("Montevideana", "Diego", 1599999999, "Helados", 7);
-const contacto8 = new NuevoContacto("Cervezas Juan", "Viviana", 1599999999, "Alcohol", 8);
-const contacto9 = new NuevoContacto("Limpiando", "Pedro", 1599999999, "Limpieza", 9);
-const contacto10 = new NuevoContacto("Celulares CABA", "Facundo", 1599999999, "Electronica", 10);
-const contacto11 = new NuevoContacto("Coca cola", "Seberina", 1599999999, "Bebidas", 11);
-const contacto12 = new NuevoContacto("Villavicencio", "Nayeli", 1599999999, "Bebidas", 12);
+
+
+
 
 let LISTA = [];
+
+//setear estanteria con async await
+const mostrarContactos = async () => {
+    //ruta relativa del html al JSON y abrirlo con LIVESERVER
+    //!ACÁ ME VI OBLIGADO A PONER ../, SINO ME TOMA QUE EL CONTACTOS.JSON ESTÁ EN LA CARPETA PAGES.
+    const res = await fetch("../contactos.json")
+    const data = await res.json()
+
+    for(let contacto of data){
+        let contactoNuevo = new NuevoContacto(contacto.empresa, contacto.persona, contacto.contacto, contacto.rubro, contacto.id)
+        LISTA.push(contactoNuevo)
+        localStorage.setItem("LISTA", JSON.stringify(LISTA))
+        
+    }
+
+
+}
+
+
+
+
+
+
 /* ARRAY MASTER */
 /* SETEO LOCALSTORAGE */
 if (localStorage.getItem("LISTA")) {
+
     LISTA = JSON.parse(localStorage.getItem("LISTA"))
 }
 else {
-    LISTA.push(contacto1, contacto2, contacto3, contacto4, contacto5, contacto6, contacto7, contacto8, contacto9, contacto10, contacto11, contacto12)
-    localStorage.setItem("LISTA", JSON.stringify(LISTA))
+    console.log("entra por primera vez, setea libros");
+    
+    mostrarContactos()
+
 }
 
-localStorage.setItem("LISTA", JSON.stringify(LISTA));
 
 
-/* INICIO LISTA */
-verAgenda(LISTA);
+/* INICIO LISTA - SPINNER */
+
+let spinner = document.querySelector("#spinner");
+setTimeout(() => {
+    spinner.remove()
+    verAgenda(LISTA);
+}, 1500);
+
 
 
 //! Funcion para mostrar agenda
@@ -66,7 +101,7 @@ function verAgenda(array) {
         let nuevoContacto = document.createElement("div");
         nuevoContacto.className = `card text-black mb-3 ${element.rubro} ${element.id}`;
         let icon;
-        switch (element.rubro){
+        switch (element.rubro) {
             case "Bebidas":
                 icon = `fa-solid fa-bottle-water`;
                 break
@@ -92,13 +127,14 @@ function verAgenda(array) {
                 icon = `fa-solid fa-bottle-water`
                 break
             default:
-                return console.log("Agregaste cualquier cosa")
+                return swal({
+                    title: "¡Error!",
+                    text: "El rubro no existe!",
+                    icon: "error",
+                    button: "Volver a intentar",
+                });
 
         }
-
-
- 
-
         nuevoContacto.innerHTML = `
         <div class="card-header">${element.rubro}</div>
         <div class="card-body">
@@ -112,18 +148,30 @@ function verAgenda(array) {
 
 }
 
-// Funcion para cargar un contacto
+//! Funcion para cargar un contacto
 function cargarContacto(array) {
     let inputEmpresa = document.getElementById("inputEmpresa");
     let inputNombre = document.getElementById("inputNombre");
     let inputContacto = document.getElementById("inputContacto");
     let inputRubro = document.getElementById("inputRubro");
+    let empresaDetectada = array.find((el) => el.empresa.toLowerCase() == inputEmpresa.value.toLowerCase());
+    if (array.includes(empresaDetectada)) {
+        swal({
+            title: "¡Error!",
+            text: "Ya existe una empresa con ese nombre!",
+            icon: "error",
+            button: "Volvé a intentarlo",
+        })
+    }
+    else {
+        const contacto = new NuevoContacto(inputEmpresa.value, inputNombre.value, inputContacto.value, inputRubro.value);
+        array.push(contacto);
+        localStorage.setItem("LISTA", JSON.stringify(array));
+        verAgenda(array);
 
-    const contacto = new NuevoContacto(inputEmpresa.value, inputNombre.value, inputContacto.value, inputRubro.value);
-    array.push(contacto);
-    //sumarlo tambien al storage
-    localStorage.setItem("LISTA", JSON.stringify(array));
-    verAgenda(array);
+    }
+
+
 }
 
 
@@ -132,6 +180,7 @@ function eliminarContacto(array) {
     let eliminarEmpresa = document.getElementById("inputEliminarCard").value.toLowerCase();
     let arrayWithEmpresa = array.map((contacto) => contacto.empresa.toLowerCase());
     let empresaSeleccionada = arrayWithEmpresa.indexOf(eliminarEmpresa);
+
     if (arrayWithEmpresa.includes(eliminarEmpresa)) {
         array.splice(empresaSeleccionada, 1);
         swal({
@@ -139,7 +188,7 @@ function eliminarContacto(array) {
             text: "Se ha guardado el cambio",
             icon: "success",
             button: "Continuar",
-          });
+        });
         localStorage.setItem("LISTA", JSON.stringify(array));
         verAgenda(array);
     }
@@ -149,12 +198,13 @@ function eliminarContacto(array) {
             text: "No se ha encontrado la empresa seleccionada!",
             icon: "error",
             button: "Volver a intentar",
-          });
+        });
     }
 
 
 
 }
+
 
 
 //! Funcion para filtrar por rubro
@@ -169,7 +219,7 @@ function filtrarPorRubro(array) {
             text: "No se ha encontrado el rubro indicado",
             icon: "error",
             button: "Volver a intentar",
-          });
+        });
     } else {
         verAgenda(seleccion)
     }
@@ -187,7 +237,7 @@ function buscarEmpresa(array) {
             text: "No se ha encontrado la empresa indicada indicado",
             icon: "error",
             button: "Volver a intentar",
-          });
+        });
     }
     else {
         arrayEncontrado[0] = empresaEncontrada;
@@ -215,13 +265,11 @@ function ordenarAlfaEmpresa(array) {
 
 
 
-
-
 //! EVENTOS
 
 //? CARGAR CONTACTO
 let btnCargarContacto = document.getElementById("btnCargarContacto")
-btnCargarContacto.addEventListener("click", () =>{
+btnCargarContacto.addEventListener("click", () => {
     cargarContacto(LISTA)
 })
 
@@ -263,6 +311,16 @@ inputEliminarCard.addEventListener('keypress', function (e) {
 
 //? ORDENAR ALFABETICAMENTE
 let btnOrdenarAlfa = document.getElementById("ordenarAlfaEmpresa")
-btnOrdenarAlfa.addEventListener("click", () =>{
+btnOrdenarAlfa.addEventListener("click", () => {
     ordenarAlfaEmpresa(LISTA)
 })
+
+
+
+
+
+
+
+//TOOLTIPS
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

@@ -16,6 +16,7 @@ main {
             }
         }
     }
+    
 }
 /* UTILIDADES */
 .utilidades {
@@ -114,16 +115,20 @@ main {
     width: 14rem !important;
     padding: 0.5rem;
 }
+
+
 /* !AGENDA  */
 main {
-    h1 {
+    /* h1 {
         text-align: center;
         padding: 2rem 0;
         font-style: italic;
-    }
+    } */
     .plantilla {
         height: 100%;
         width: 100%;
+        //buttons
+        
         .cardsProvedores {
             .container-fluid {
                 .row {
@@ -137,7 +142,7 @@ main {
                                 font-size: 3.5rem;
                                 position: absolute;
                                 right: 2rem;
-                                top: 4rem;
+                                top: 5rem;
                             }
                             .cerrar {
                                 position: absolute;
@@ -152,7 +157,7 @@ main {
         }
     }
 }
-
+/* !RUBROS */
 .Golosinas {
     background: linear-gradient(45deg, #4099ff, #73b4ff);
 }
@@ -185,25 +190,34 @@ main {
 
 //NOTAS
 
-main{
-    height: 100%;
-    .container-fluid{
-        height: 100%;
-        .notesGrid{
-            height: 100%;
-            width: 100%;
-            background-color: #4099ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            .notesDisplay{
-                background-color: black;
-                height: 33%;
-                width: 25%;
-            }
-        }
-
+.row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    .notasCard{
+        margin: 20px;
+        background-color: #4099ff;
+        border: 1px solid;
+        min-height: 50vh;
+        text-align: center;
     }
+
+}
+
+
+.swal-modal{
+    padding: 1rem;
+    .swal-title{
+        font-size: 2rem;
+        font-family: $font-family2;
     
+    }
+    .swal-text{
+        line-height: 1.5rem;
+        font-family: $font-family2;
+        font-size: 1.2rem;
+        text-align: justify;
+    }
+
 }

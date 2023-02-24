@@ -1,0 +1,87 @@
+
+[
+    {
+        "empresa": "Arcor",
+        "persona": "Juan Pablo",
+        "contacto": 1599999999,
+        "rubro": "Golosinas",
+        "id": 2
+    },
+    {
+        "empresa": "Frigor",
+        "persona": "Marina",
+        "contacto": 1599999999,
+        "rubro": "Helados",
+        "id": 2
+    },
+    {
+        "empresa": "Quilmes",
+        "persona": "Raul",
+        "contacto": 1599999999,
+        "rubro": "Alcohol",
+        "id": 3
+    },
+    {
+        "empresa": "Aralex",
+        "persona": "Marta",
+        "contacto": 1599999999,
+        "rubro": "Fumador",
+        "id": 4
+    },
+    {
+        "empresa": "Fali",
+        "persona": "Juan Cruz",
+        "contacto": 1599999999,
+        "rubro": "Fumador",
+        "id": 5
+    },
+    {
+        "empresa": "La Dolce",
+        "persona": "María",
+        "contacto": 1599999999,
+        "rubro": "Golosinas",
+        "id": 6
+    },
+    {
+        "empresa": "Montevideana",
+        "persona": "Diego",
+        "contacto": 1599999999,
+        "rubro": "Helados",
+        "id": 7
+    },
+    {
+        "empresa": "Cervezas Juan",
+        "persona": "Viviana",
+        "contacto": 1599999999,
+        "rubro": "Alcohol",
+        "id": 8
+    },
+    {
+        "empresa": "Limpiando",
+        "persona": "Pedro",
+        "contacto": 1599999999,
+        "rubro": "Limpieza",
+        "id": 9
+    },
+    {
+        "empresa": "Celulares CABA",
+        "persona": "Facundo",
+        "contacto": 1599999999,
+        "rubro": "Electronica",
+        "id": 10
+    },
+    {
+        "empresa": "Coca cola",
+        "persona": "Seberina",
+        "contacto": 1599999999,
+        "rubro": "Bebidas",
+        "id": 11
+    },
+    {
+        "empresa": "Villavicencio",
+        "persona": "Nayeli",
+        "contacto": 1599999999,
+        "rubro": "Bebidas",
+        "id": 12
+    }
+]

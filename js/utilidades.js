@@ -1,26 +1,45 @@
+//!FECHA Y HORA
+setInterval(() => {
+    // HORA
+    const time = luxon.DateTime.now().toLocaleString(luxon.DateTime.TIME_WITH_SECONDS);
+    horaDOM = document.querySelector("#hora");
+    horaDOM.innerHTML = `${time}`;
+    // FECHA
+    const date = luxon.DateTime.now().toLocaleString(luxon.DateTime.DATE_SHORT);
+    fechaDOM = document.querySelector("#fecha");
+    fechaDOM.innerHTML = `${date}`;
+
+}, 1000);
+
 
 //! CALCULAR VALOR VENTA
 function valorVenta() {
-    const VALOR_AGREGADO = document.getElementById("inputMargen")
-    let num = document.getElementById("valorVentaInput")
+    const VALOR_AGREGADO = document.getElementById("inputMargen");
+    let num = document.getElementById("valorVentaInput");
     let resultado = num.value * VALOR_AGREGADO.value;
     let divPadre = document.getElementById("resultadoVenta");
     divPadre.innerHTML = ``;
-    let construccion = document.createElement("div")
-    isNaN(resultado) ? construccion.innerHTML = `No ingresaste ningún valor` : construccion.innerHTML = `Precio de venta ${resultado.toFixed(2)}$`;
-    divPadre.append(construccion)
+    let construccion = document.createElement("div");
+    num.value == 0 ? construccion.innerHTML = `No ingresaste ningún valor` : construccion.innerHTML = `Precio de venta ${resultado.toFixed(2)}$`;
+    divPadre.append(construccion);
+    /* Reset input */
+    num.value = `0`;
+
 }
 
 //! CALCULAR I.V.A. 
 function valorIva() {
     const IVA_ARGENTINA = 0.21;
-    let valorProducto = document.getElementById("valorProductoInput")
+    let valorProducto = document.getElementById("valorProductoInput");
     let resultado = valorProducto.value * IVA_ARGENTINA;
-    let divPadre = document.getElementById("resultadoIva")
+    let divPadre = document.getElementById("resultadoIva");
     divPadre.innerHTML = ``;
     let construccion = document.createElement("div");
-    isNaN(resultado) ? construccion.innerHTML = `<p>No ingresaste ningún valor</p>` : construccion.innerHTML = `<p>I.V.A. es de ${resultado.toFixed(2)}$</p>`
-    divPadre.appendChild(construccion)
+    resultado == 0 ? construccion.innerHTML = `<p>No ingresaste ningún valor</p>` : construccion.innerHTML = `<p>I.V.A. es de ${resultado.toFixed(2)}$</p>`;
+    divPadre.appendChild(construccion);
+    /* Reset input */
+    valorProducto.value =`0`;
+    
 
 }
 
@@ -28,7 +47,7 @@ function valorIva() {
 class NuevoOperativo {
     constructor(nombre, valor) {
         this.nombre = nombre,
-            this.valor = valor
+        this.valor = valor
     }
     verInfo() {
         return `
@@ -56,9 +75,8 @@ function crearOperativo() {
         errorText.innerHTML = ``;
         const creador = new NuevoOperativo(inputNombre.value, inputValor.value)
         LISTA_OPERATIVO.push(creador)
-        inputNombre.value = "";
-        inputValor.value = "";
-
+        let formOperativo = document.querySelector("#formOperativo");
+        formOperativo.reset()
         sumaTotalCostos += parseInt(creador.valor);
 
         let plantillaCosto = document.getElementById("plantillaCosto")
@@ -136,7 +154,6 @@ const PEDIDOSYA = new Links("pedidosya", "https://www.pedidosya.com.ar/", "../as
 
 const LINKS = [GOOGLE, CALENDAR, FACEBOOK, WHATSAPP, YOUTUBE, TRELLO, AFIP, BBC, INFOBAE, PAGINA12, LANACION, CKU, INFOKIOSCO, GOBIERNO, LINKEDIN, MERCADOPAGO, MERCADOLIBRE, RAPPI, PEDIDOSYA, COCACOLA, PEPSI, SUBE, LAYS, ARCOR, STELLA]
 
-console.log(LINKS)
 
 
 
@@ -148,7 +165,6 @@ for (let el of LINKS) {
     nuevoLink.href = el.link
     nuevoLink.classList = "aLinks"
     nuevoLink.innerHTML = `<img src="${el.img}" alt="logo ${el.nombre}" class="imgLinks">`
-    console.log(nuevoLink)
     grid.appendChild(nuevoLink)
 }
 
